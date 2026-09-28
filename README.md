@@ -10,6 +10,8 @@ Você escreve o que quer ("crie 3 cores para show de rock", "faça um chase de 4
 
 **[⬇️ Baixar a última versão](https://github.com/BRT-STUDIO01/brt-mai-releases/releases/latest)** · Windows 10/11 · grandMA2 onPC 3.9
 
+> 🎁 **Grátis por tempo limitado.** Para liberar o acesso, crie uma conta no **[Patreon do Studio BRT](https://www.patreon.com/c/StudioBRT)** e entre como **membro**, usando o **mesmo e-mail da sua conta Google**. É com essa conta Google que você entra no programa.
+
 ![Console do PRISMA · AI](imagens/01-console.png)
 
 ---
@@ -82,20 +84,33 @@ Este repositório tem **apenas os instaladores oficiais**. Não baixe o PRISMA �
 | `PRISMA_AI_..._Setup.exe` | Instalador do programa (é o que você baixa) |
 | `latest.yml` e `.blockmap` | Usados pela atualização automática. Não precisa baixar. |
 
+## Acesso: grátis por tempo limitado
+
+Nesta fase o PRISMA · AI é **gratuito**. Para usar, você só precisa ser **membro do Studio BRT no Patreon**:
+
+1. Crie uma conta no **[Patreon](https://www.patreon.com/c/StudioBRT)** com o **mesmo e-mail da conta Google** que você vai usar no programa.
+2. Na página do **[Studio BRT](https://www.patreon.com/c/StudioBRT)**, clique em **Participar** / **Tornar-se membro** (o plano gratuito basta).
+3. Abra o PRISMA · AI e entre com essa conta Google. O acesso é liberado na hora.
+
+Se aparecer "acesso negado", confira se o e-mail do Patreon é o mesmo da conta Google e se você já é membro da página. Ainda com problema? Escreva para **audiovisualbrt@gmail.com**.
+
+A gratuidade vale **por tempo limitado**. Quando mudar, avisamos antes no Patreon.
+
 ## Requisitos
 
 - Windows 10 ou 11, 64 bits
 - grandMA2 onPC 3.9 (testado na 3.9.60.82), no mesmo computador
-- Conta Google e acesso ativo na comunidade do Studio BRT no Patreon
+- Conta Google **e** ser membro do [Studio BRT no Patreon](https://www.patreon.com/c/StudioBRT) com o mesmo e-mail (grátis por tempo limitado)
 - Um motor de IA: chave da API Gemini **ou** o Antigravity CLI logado com a sua conta Google
 
 ## Instalar em 5 minutos
 
+0. **Antes de tudo:** entre como membro no [Patreon do Studio BRT](https://www.patreon.com/c/StudioBRT) com o mesmo e-mail da sua conta Google (veja **Acesso** acima).
 1. **Aviso do navegador ("normalmente não é baixado"):** o Chrome e o Edge mostram isso para programas novos, com poucos downloads. No Edge, clique nos **···** ao lado do arquivo, depois em **Manter** e em **Manter assim mesmo**. No Chrome, clique em **Manter**.
 2. Rode o instalador baixado.
 3. **Aviso do Windows ("O Windows protegeu o computador"):** o instalador ainda não tem assinatura digital paga, então o SmartScreen avisa. Clique em **Mais informações** e depois em **Executar assim mesmo**.
 4. Leia e aceite os termos. O programa é instalado só para o seu usuário, sem pedir administrador.
-5. Abra o **PRISMA · AI**, entre com a conta Google e escolha o motor de IA.
+5. Abra o **PRISMA · AI**, entre com a **mesma conta Google do Patreon** e escolha o motor de IA.
 
    ![Tela de acesso do PRISMA · AI](imagens/09-login.png)
 

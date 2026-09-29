@@ -8,9 +8,11 @@
 
 Você escreve o que quer ("crie 3 cores para show de rock", "faça um chase de 4 passos com fade de 2 segundos") e a IA monta e executa os comandos na sua **grandMA2 onPC**. Ela usa os aparelhos, os grupos e os presets do **seu** show, e não grava por cima do que você já fez.
 
-**[⬇️ Baixar a última versão](https://github.com/BRT-STUDIO01/brt-mai-releases/releases/latest)** · Windows 10/11 · grandMA2 onPC 3.9
+**[⬇️ Baixar a última versão](https://github.com/BRT-STUDIO01/brt-mai-releases/releases/latest)** · Windows 10/11 · grandMA2 onPC 3.9 · no mesmo PC ou em outro PC da rede
 
 > 🎁 **Grátis por tempo limitado.** Para liberar o acesso, crie uma conta no **[Patreon do Studio BRT](https://www.patreon.com/c/StudioBRT)** e entre como **membro**, usando o **mesmo e-mail da sua conta Google**. É com essa conta Google que você entra no programa.
+
+> ▶️ **Tutoriais em vídeo:** no canal **[@BRTAPRESENTA no YouTube](https://www.youtube.com/@BRTAPRESENTA)**.
 
 ![Console do PRISMA · AI](imagens/01-console.png)
 
@@ -50,13 +52,21 @@ Com pressa? O **BRT AI v1** faz direto, sem perguntar:
 
   ![Posição de referência](imagens/08-posicao-referencia.png)
 
+- **Do Capture para a mesa:** abra o projeto do **Capture** (MVR) e o PRISMA · AI cria os tipos, os aparelhos no patch com ID e endereço, a posição no **Stage 3D** e a planta no **Layout 2D**.
+- **Mesa em outro computador:** a grandMA2 onPC pode estar em outro PC da rede. Você digita o IP da mesa e trabalha normalmente.
 - **Tudo à vista:** o console mostra se a mesa está conectada, o resumo do show, a referência, os plugins e o que a IA está fazendo, linha por linha.
 
   ![Painel lateral do console](imagens/07-painel-lateral.png)
 
 ## O que ele cria
 
-Presets de **dimmer, posição, gobo, cor, beam e foco** · **grupos** · **efeitos** · **cenas e cues** com fade · **chases** · **macros** · **layouts**.
+Presets de **dimmer, posição, gobo, cor, beam e foco** · **grupos** · **efeitos** · **cenas e cues** com fade · **chases** · **macros** · **layouts** · e, a partir do Capture, **aparelhos no patch**, **Stage 3D** e **Layout 2D**.
+
+Na cor, cada aparelho usa o que tem: o LED mistura qualquer cor, e o moving de disco só entra nas cores que existem no disco dele (nunca "meia cor").
+
+## Tutoriais
+
+Vídeos mostrando o programa na prática, do primeiro pedido ao show pronto: **[youtube.com/@BRTAPRESENTA](https://www.youtube.com/@BRTAPRESENTA)**.
 
 ---
 
@@ -64,18 +74,19 @@ Presets de **dimmer, posição, gobo, cor, beam e foco** · **grupos** · **efei
 
 O **PRISMA · AI** é desenvolvido pelo **Studio BRT**, que cria hardware e software para palco e eventos ao vivo: controle de luz, instalações interativas e tecnologia de show.
 
-Dúvidas, sugestões ou problemas: **audiovisualbrt@gmail.com**
+Dúvidas, sugestões ou problemas: **audiovisualbrt@gmail.com** · Vídeos: **[YouTube @BRTAPRESENTA](https://www.youtube.com/@BRTAPRESENTA)**
 
 ## Versões
 
 O nome da versão mostra em que ponto o programa está:
 
-- **1.0 RC rev 270926**: versão **1.0**, fase **RC** (*Release Candidate*, candidata à versão final: completa e em teste de campo). **rev 270926** é a data do build (27/09/26).
+- **1.0 RC rev 290926**: versão **1.0**, fase **RC** (*Release Candidate*, candidata à versão final: completa e em teste de campo). **rev 290926** é a data do build (29/09/26).
+- Cada correção sai como uma nova **rev** da mesma 1.0 RC. O programa atualiza sozinho de uma rev para a outra.
 - Quando a 1.0 for considerada final, o "RC" sai do nome.
 
 ## Baixar
 
-➡️ **[Última versão](https://github.com/BRT-STUDIO01/brt-mai-releases/releases/latest)**: baixe o arquivo `PRISMA_AI_..._Setup.exe` (ex.: `PRISMA_AI_1.0_RC_rev270926_Setup.exe`).
+➡️ **[Última versão](https://github.com/BRT-STUDIO01/brt-mai-releases/releases/latest)**: baixe o arquivo `PRISMA_AI_..._Setup.exe` (ex.: `PRISMA_AI_1.0_RC_rev290926_Setup.exe`).
 
 Este repositório tem **apenas os instaladores oficiais**. Não baixe o PRISMA · AI de outro lugar.
 
@@ -99,7 +110,7 @@ A gratuidade vale **por tempo limitado**. Quando mudar, avisamos antes no Patreo
 ## Requisitos
 
 - Windows 10 ou 11, 64 bits
-- grandMA2 onPC 3.9 (testado na 3.9.60.82), no mesmo computador
+- grandMA2 onPC 3.9 (testado na 3.9.60.74 e na 3.9.60.82), no mesmo computador **ou** em outro PC da mesma rede
 - Conta Google **e** ser membro do [Studio BRT no Patreon](https://www.patreon.com/c/StudioBRT) com o mesmo e-mail (grátis por tempo limitado)
 - Um motor de IA: chave da API Gemini **ou** o Antigravity CLI logado com a sua conta Google
 
@@ -114,14 +125,44 @@ A gratuidade vale **por tempo limitado**. Quando mudar, avisamos antes no Patreo
 
    ![Tela de acesso do PRISMA · AI](imagens/09-login.png)
 
-6. Abra o show na grandMA2 onPC e clique em **INICIAR**. Se os plugins **BRT AI v1** (faz direto) e **BRT AI v2** (pergunta antes) não estiverem na mesa, o programa tenta instalá-los.
+6. Abra o show na grandMA2 onPC e clique em **INICIAR**. Se os plugins **BRT AI v1** (faz direto) e **BRT AI v2** (pergunta antes) não estiverem na mesa, o programa tenta instalá-los, também quando a mesa está em outro PC.
+
+## Mesa em outro computador
+
+O PRISMA · AI conversa com a grandMA2 onPC pela rede (Telnet, porta 30000). No **PC da mesa**:
+
+1. Na grandMA2 onPC, ligue o Telnet: **Setup → Console → Global Settings → Telnet = Login Enabled**.
+2. No Windows, deixe a rede como **Privada** (em Rede pública o Windows bloqueia tudo).
+3. Libere a porta 30000 no firewall. No PowerShell como administrador:
+
+   ```
+   New-NetFirewallRule -DisplayName "grandMA2 Telnet" -Direction Inbound -Protocol TCP -LocalPort 30000 -Action Allow
+   ```
+
+No **PC do PRISMA · AI**:
+
+4. Com o programa parado, clique no campo **MESA → Endereço** do console e digite o IP do PC da mesa (ex.: `192.168.0.11`).
+5. Clique em **INICIAR**. O programa conecta, lê o show e instala os plugins, se faltarem.
+
+**Não conecta?** O "ping" costuma estar bloqueado pelo Windows e não prova nada. Teste a porta no PowerShell: `Test-NetConnection 192.168.0.11 -Port 30000` precisa mostrar `TcpTestSucceeded : True`.
+
+## Stage 3D: do Capture para a grandMA2
+
+No console, abra **Stage 3D (MVR)** e escolha a pasta do projeto do Capture (`.mvr` + `.c2p` salvo no formato Capture 2023; o `.gltf` é opcional).
+
+1. **Conferir:** os mapas de cima e de frente, o tipo da biblioteca da MA para cada aparelho do Capture (ou **criar do Capture**, se a MA não tiver) e os IDs. **Numerar** continua de onde a mesa parou.
+2. **Criar aparelhos:** deixe aberta na mesa a janela **Setup → Patch & Fixture Schedule**. O programa cria uma camada por tipo ("CAPTURE Robin Pointe"...), com ID, endereço, posição e rotação. Depois feche o Patch e responda **SIM**.
+3. **Posicionar no Stage 3D:** só é preciso para aparelhos que já existiam na mesa. O botão mostra quando já está tudo posicionado.
+4. **Layout 2D:** monta a planta vista de cima no Layout que você escolher (padrão 20).
+
+**Salve o show antes.** Enquanto o Patch está aberto, a MA2 mostra as posições como 0 0 0; isso é normal.
 
 ## Conferir se o arquivo é original
 
 Na página de cada versão, o GitHub mostra o **sha256** de cada arquivo. Para conferir, abra o `cmd` na pasta do download e rode:
 
 ```
-certutil -hashfile PRISMA_AI_1.0_RC_rev270926_Setup.exe SHA256
+certutil -hashfile PRISMA_AI_1.0_RC_rev290926_Setup.exe SHA256
 ```
 
 O código que aparece tem que ser igual ao da página. Se não for, não instale e avise pelo e-mail acima.
@@ -132,7 +173,7 @@ O programa confere se há versão nova ao abrir (e depois a cada 3 horas), baixa
 
 ## Privacidade (resumo)
 
-- Tudo roda **no seu computador**. O servidor do programa só aceita conexões da própria máquina.
+- Tudo roda **no seu computador**. O servidor do programa só aceita conexões da própria máquina. Com a mesa em outro PC, o programa só conversa com a grandMA2 no IP que você digitou.
 - Seus pedidos e um resumo técnico do show vão para o provedor de IA que **você** escolheu (Google), com a **sua** conta.
 - Para melhorar os agentes, o Studio BRT recebe dados de uso: e-mail, nome do computador, pedidos, resultados e erros.
 - **Não** enviamos: arquivos de show, sua chave de API, senhas nem outros arquivos do seu computador.

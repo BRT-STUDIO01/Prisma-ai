@@ -8,7 +8,7 @@
 
 Você escreve o que quer ("crie 3 cores para show de rock", "faça um chase de 4 passos com fade de 2 segundos") e a IA monta e executa os comandos na sua **grandMA2 onPC**. Ela usa os aparelhos, os grupos e os presets do **seu** show, e não grava por cima do que você já fez.
 
-**[⬇️ Baixar a última versão](https://github.com/BRT-STUDIO01/brt-mai-releases/releases/latest)** · Windows 10/11 · grandMA2 onPC 3.9 · no mesmo PC ou em outro PC da rede
+**[⬇️ Baixar a última versão](https://github.com/BRT-STUDIO01/Prisma-ai/releases/latest)** · Windows 10/11 · grandMA2 onPC 3.9 · no mesmo PC ou em outro PC da rede
 
 > 🎁 **Grátis por tempo limitado.** Para liberar o acesso, crie uma conta no **[Patreon do Studio BRT](https://www.patreon.com/c/StudioBRT)** e entre como **membro**, usando o **mesmo e-mail da sua conta Google**. É com essa conta Google que você entra no programa.
 
@@ -86,7 +86,7 @@ O nome da versão mostra em que ponto o programa está:
 
 ## Baixar
 
-➡️ **[Última versão](https://github.com/BRT-STUDIO01/brt-mai-releases/releases/latest)**: baixe o arquivo `PRISMA_AI_..._Setup.exe` (ex.: `PRISMA_AI_1.0_RC_rev290926_Setup.exe`).
+➡️ **[Última versão](https://github.com/BRT-STUDIO01/Prisma-ai/releases/latest)**: baixe o arquivo `PRISMA_AI_..._Setup.exe` (ex.: `PRISMA_AI_1.0_RC_rev290926_Setup.exe`).
 
 Este repositório tem **apenas os instaladores oficiais**. Não baixe o PRISMA · AI de outro lugar.
 
@@ -148,7 +148,7 @@ No **PC do PRISMA · AI**:
 
 ## Stage 3D: do Capture para a grandMA2
 
-No console, abra **Stage 3D (MVR)** e escolha a pasta do projeto do Capture (`.mvr` + `.c2p` salvo no formato Capture 2023; o `.gltf` é opcional).
+No console, abra **Stage 3D (MVR)** e escolha a pasta do projeto do Capture (`.mvr` + o `.c2p` do projeto, salvo normal ou como Capture 2023; o `.gltf` é opcional).
 
 1. **Conferir:** os mapas de cima e de frente, o tipo da biblioteca da MA para cada aparelho do Capture (ou **criar do Capture**, se a MA não tiver) e os IDs. **Numerar** continua de onde a mesa parou.
 2. **Criar aparelhos:** deixe aberta na mesa a janela **Setup → Patch & Fixture Schedule**. O programa cria uma camada por tipo ("CAPTURE Robin Pointe"...), com ID, endereço, posição e rotação. Depois feche o Patch e responda **SIM**.

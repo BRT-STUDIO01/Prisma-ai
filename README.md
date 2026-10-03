@@ -54,9 +54,17 @@ Com pressa? O **BRT AI v1** faz direto, sem perguntar:
 
 - **Do Capture para a mesa:** abra o projeto do **Capture** (MVR) e o PRISMA · AI cria os tipos, os aparelhos no patch com ID e endereço, a posição no **Stage 3D** e a planta no **Layout 2D**.
 - **Mesa em outro computador:** a grandMA2 onPC pode estar em outro PC da rede. Você digita o IP da mesa e trabalha normalmente.
+- **Cara de grandMA2:** o programa tem o visual da própria grandMA2 onPC: teclas cinza com relevo, barras de título azuis, verde para executar e amarelo para o que está selecionado. Quem opera MA se sente em casa.
+- **Linha de comando da MA dentro do programa:** no rodapé do console tem o `[Channel]>`. Digite um comando da grandMA2 (`Fixture 101 At 100`, `Group 3 At Preset 4.21`...), dê Enter e ele vai direto para a mesa, com a resposta ao lado. As setas ↑↓ trazem os comandos anteriores, como na MA.
 - **Tudo à vista:** o console mostra se a mesa está conectada, o resumo do show, a referência, os plugins e o que a IA está fazendo, linha por linha.
 
   ![Painel lateral do console](imagens/07-painel-lateral.png)
+
+- **Nomeia as rodas e o shutter olhando o aparelho (F6 · Atributos):** o programa confere em cada tipo do patch se as cores, os gobos, os prismas e o shutter têm nome. Onde falta, ele manda o valor DMX no aparelho e você só clica no que aparece (a cor, o gobo, "strobe seco", "entra seco e sai em fade"...). No fim grava tudo no tipo da mesa, no formato dos aparelhos da biblioteca da MA.
+
+  ![Atributos: aprendendo as faixas do shutter](imagens/10-atributos-shutter.png)
+
+- **Cria o aparelho que a MA não tem (F7 · Criar aparelho):** monte o tipo canal por canal (com 2 prismas, 3 gobos, cluster de células) ou copie um tipo do show, e o programa grava na biblioteca e importa no show.
 
 ## O que ele cria
 

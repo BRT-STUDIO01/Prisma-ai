@@ -1,0 +1,25 @@
+# PRISMA · AI
+
+> PRISMA · AI (by Studio BRT) is a Windows 10/11 desktop app that programs a grandMA2 onPC 3.9 lighting console from plain-language requests in Portuguese. It connects to the console over Telnet (port 30000, same PC or LAN), reads the show (patch, fixture attributes, groups, presets, free IDs), sends the request plus a technical show summary to an AI engine (Google Gemini API key or Antigravity CLI) and runs the resulting MA2 commands, always on free IDs so the user's work is never overwritten. Free for a limited time for Studio BRT Patreon members (free tier), signing in with the same Google account.
+
+Key facts:
+- Download (official installers only): https://github.com/BRT-STUDIO01/Prisma-ai/releases/latest
+- Current line: 1.0 RC ("Release Candidate"); "rev DDMMAA" is the build date. Auto-updates on start and every 3 hours.
+- Requirements: Windows 10/11 64-bit; grandMA2 onPC 3.9 (tested 3.9.60 and 3.9.63); Google account + Studio BRT Patreon membership (same e-mail); Gemini API key or Antigravity CLI.
+- SmartScreen warning ("Windows protected your PC") is expected: the installer is not yet code-signed. Click "More info" → "Run anyway". Verify the SHA-256 shown on the release page with `certutil -hashfile <file> SHA256`.
+- In-console plugins it installs: BRT AI v1 (direct), BRT AI v2 (asks + shows plan before running), PRISMA Color Picker v7, PRISMA Layout Clone v4, PRISMA Channel Sets v3. Ask "instala os plugins" to (re)install.
+- Request prefixes: dimmer:, posicao:, gobo:, cor:, beam:, focus:, preset control:, preset all:, efeito:, cena:/cue:, chase:, cria:, macro:, grupo:, layout:, laser:, patch: (read-only), ajuda: (explains, never creates), analise (re-read show). timecode: is locked in this version.
+- One-shot builders (no questions): "cria os grupos de seleção pelos layouts 1 2 3" (8 groups per fixture type in stage order: ALL ODD EVEN ESQ DIR CENTRO PONTAS IN-OUT, from group 101), "cria o color picker" (one row per type, 12 colors, 2nd-color split 1x1/MET/PNT, fade, delay, direction), "clona o desenho do 21 para 22 a 30 no layout 1" (copies a multi-cell fixture drawing in place, 1-square gap), "cria os efeitos base" (effects from 901), "cria os presets de beam" (pool 5 from 101), "cria o layout dos tipos com ícones", "importa os ícones do prisma", "reordena os grupos pelo layout N".
+- Position reference: store the movers pointing to stage front as `Store Preset 2.101 "REF FRENTE"`; the AI builds other positions relative to it.
+- Capture integration (F3 · Stage 3D): reads .mvr + .c2p, maps fixture types (or creates them), patches with IDs/addresses (one layer per type), positions in Stage 3D and builds a 2D Layout.
+- Privacy: runs locally; requests + show summary go to the user's chosen AI provider with the user's account; usage data (e-mail, computer name, requests, results, errors) goes to Studio BRT; show files, API keys and passwords are not sent. LGPD requests: audiovisualbrt@gmail.com.
+- Contact: audiovisualbrt@gmail.com · Videos: https://www.youtube.com/@BRTAPRESENTA · Patreon: https://www.patreon.com/c/StudioBRT
+- grandMA2 is a trademark of MA Lighting Technology GmbH; PRISMA · AI is an independent product.
+
+## Docs
+
+- [README](https://github.com/BRT-STUDIO01/Prisma-ai/blob/main/README.md): overview, screens, install, network, Stage 3D, privacy
+- [Command manual](https://github.com/BRT-STUDIO01/Prisma-ai/blob/main/docs/MANUAL.md): every request type, prefixes, tested grandMA2 syntax and console error codes
+- [Plugins](https://github.com/BRT-STUDIO01/Prisma-ai/blob/main/docs/PLUGINS.md): BRT AI v1/v2, Color Picker, Layout Clone, Channel Sets, icons
+- [FAQ](https://github.com/BRT-STUDIO01/Prisma-ai/blob/main/docs/FAQ.md): install, access, connection, color picker, groups, Capture
+- [Terms and privacy policy (Portuguese)](https://github.com/BRT-STUDIO01/Prisma-ai/blob/main/docs/PRIVACIDADE.md)

@@ -41,6 +41,13 @@ Não. O programa é instalado só para o seu usuário.
 3. Mesa em outro PC: rede **Privada**, porta 30000 liberada no firewall e o IP certo em **MESA → Endereço**.
 4. Teste a porta: `Test-NetConnection <IP> -Port 30000` precisa dar `TcpTestSucceeded : True`.
 
+### Conecta, mas nada funciona (Error #43 LOGIN NEEDED)
+
+O programa entra na mesa como **Administrator** (senha `admin`, o padrão da MA2) e, se não der, tenta sem senha. Um show que veio de outro operador pode ter outra senha. O terminal mostra "NAO CONSEGUI ENTRAR NA MESA". Duas saídas:
+
+- Na grandMA2, **Setup → Users**: confira ou volte a senha do Administrator para `admin`.
+- Ou coloque o usuário e a senha desse show no `config.env` (`AppData\Roaming\BRT Studio\config.env`): `MA2_USUARIO=nome` e `MA2_SENHA=senha`. Depois clique em PARAR e INICIAR.
+
 ### O painel mostra "bridge parado" / "não lido"
 
 O programa ainda não foi iniciado. Clique em **INICIAR**. Depois de mexer na mesa à mão, use **F1 · Reanalisar show** (ou peça `analise`).
@@ -82,7 +89,23 @@ O agente de timecode está **trancado** nesta versão (em desenvolvimento).
 
 ### O color picker veio gigante, uma linha para cada grupo
 
-Desde a v7 o color picker usa **uma linha por tipo** (os grupos "… ALL"). Atualize os plugins (`instala os plugins`), apague o picker antigo e peça `cria o color picker` de novo.
+Desde a v7 o color picker usa **uma linha por tipo** (os grupos "… ALL"). Atualize os plugins (`instala os plugins`), apague o picker antigo e peça `cria o color picker` de novo. Para escolher os grupos com botões, use o **Painel** (`cria o painel`).
+
+### No color picker, o quadrado do CYAN/BLUE/UV aparecia com outra cor
+
+Era a imagem da paleta antiga (corrigido no Color Picker v8). Atualize os plugins e crie o picker de novo.
+
+### O CTO saiu verde ou o UV não acendeu
+
+As versões antigas procuravam essas cores só na biblioteca "MA colors", que não tem CTO nem UV. O Color Picker v8 e o Painel v1.5 procuram em todas as bibliotecas de gelatina (Lee Full C.T. Orange e Congo Blue, ou laranja e violeta da MA colors). Crie o picker ou o painel de novo.
+
+### No Painel, o 2/2 não alterna um sim, um não
+
+Dois aparelhos encostados no desenho entravam na mesma coluna e piscavam juntos (ex.: 10 strobos davam 6 × 4). Na 1.0.6, numa fila cada aparelho é uma coluna. Peça os grupos de seleção de novo, apague o painel antigo e peça `cria o painel`.
+
+### Peço "movings azul" e o Painel não muda
+
+O painel precisa ter sido criado na 1.0.6 ou depois: é ela que grava o mapa dos botões que a IA usa. Crie o painel de novo e reinicie o programa se ele estava aberto.
 
 ### O color picker não tem a 2ª cor (SPLIT)
 
@@ -90,7 +113,7 @@ A 2ª cor usa os grupos EVEN, DIR e PONTAS de cada tipo. Peça antes `cria os gr
 
 ### ODD/EVEN ou o delay saem fora de ordem
 
-Os grupos seguem o desenho do layout. Recrie os grupos de seleção **pelo layout** onde os aparelhos estão desenhados (`... pelos layouts 1 2 3`). Se o desenho tem várias fileiras (cobra, V, zigue-zague), numere os aparelhos acompanhando o desenho: o programa usa essa numeração. Depois recrie o color picker (ele guarda os aparelhos dos grupos na hora em que é criado).
+Os grupos seguem o desenho do layout, da esquerda para a direita, por **colunas** (aparelhos um em cima do outro num desenho em andares contam como uma coluna). Recrie os grupos de seleção **pelo layout** onde os aparelhos estão desenhados (`... pelos layouts 1 2 3`). Depois recrie o color picker ou o painel: eles guardam os aparelhos dos grupos na hora em que são criados.
 
 ### Os strobos de várias células ficaram longe demais no layout
 

@@ -96,20 +96,24 @@ Estes pedidos montam estruturas inteiras de uma vez, **sem caixas de pergunta** 
 | 1 | (F2 Layout Designer ou F3 Stage 3D) | Aparelhos desenhados num Layout |
 | 2 | `clona o desenho do 21 para 22 a 30 no layout 1` | Desenho do aparelho de várias células copiado para os outros |
 | 3 | `cria os grupos de seleção pelos layouts 1 2 3` | 8 grupos por tipo, na ordem do palco |
-| 4 | `cria o color picker` | Color picker no Layout, uma linha por tipo |
+| 4 | `cria o painel` | PRISMA Painel: seleção de grupos + cor, 2ª cor, fade, delay, FX de dimmer, cor e movimento |
+| 4b | `cria o color picker` (opcional) | Color picker simples no Layout, uma linha por tipo |
 | 5 | `cria os efeitos base` · `cria os presets de beam` | Efeitos e presets de feixe prontos |
 
 ### Tabela completa
 
 | Pedido (exemplos que funcionam) | O que faz |
 |---|---|
-| `instala os plugins` · `atualiza os plugins` | Coloca no pool de Plugins tudo o que o PRISMA usa (BRT AI v1/v2, Color Picker, Layout Clone, Channel Sets), só o que faltar. |
+| `instala os plugins` · `atualiza os plugins` | Coloca no pool de Plugins tudo o que o PRISMA usa (BRT AI v1/v2, Color Picker, Painel, Layout Clone, Channel Sets), só o que faltar. |
 | `cria os grupos de seleção` | 8 grupos por tipo de aparelho (ALL, ODD, EVEN, ESQ, DIR, CENTRO, PONTAS, IN-OUT) pela posição 3D. Números a partir de 101, um bloco de 10 por tipo. |
 | `cria os grupos de seleção pelos layouts 1 2 3` | Igual, pela ordem do desenho nos Layouts citados (cada tipo usa o layout onde está). Pedir de novo regrava nos mesmos números. |
 | `reordena os grupos pelo layout 1` · `arruma a ordem dos grupos 1 a 8 pelo palco` | Regrava os grupos existentes com os mesmos aparelhos, só na ordem física. Conserta efeito/delay correndo fora de ordem. |
-| `cria o color picker` | Color picker (plugin PRISMA Color Picker v7): uma linha por tipo (grupos "… ALL") + ALL, 2ª cor, fade, delay e direção. |
+| `cria o painel` · `cria o super color picker` | PRISMA Painel v1.5: os grupos de seleção viram botões (marca e fica marcado) e cor, 2ª cor, fade, delay, FX de dimmer, FX de cor, movimento e rate vão só nos marcados. Dois layouts (COR e FX), executores na página 99. Precisa dos grupos de seleção. |
+| `cria o painel na pagina 5` | O mesmo, com os executores na página 5. |
+| `movings vermelho com fade de 2s` · `strobo ímpar magenta` · `tudo uv com delay 2s do centro pra fora` · `beam vermelho e segunda cor oposta` | Com o painel no show: marca os grupos e aperta os botões do painel. Não cria nada. |
+| `cria o color picker` | Color picker simples (plugin PRISMA Color Picker v8): uma linha por tipo (grupos "… ALL") + ALL, 2ª cor, fade, delay e direção. |
 | `color picker dos grupos 101 e 111 na pagina 2` | Color picker só com esses grupos, executores na página 2. |
-| `deixa tudo azul` · `vermelho com fade de 2s` · `âmbar da esquerda pra direita com delay de 1s` | Com o color picker já criado: aperta os botões do picker (cor, fade, delay, direção). Não cria nada. |
+| `deixa tudo azul` · `vermelho com fade de 2s` · `âmbar da esquerda pra direita com delay de 1s` | Com o color picker já criado (e sem painel): aperta os botões do picker (cor, fade, delay, direção). Não cria nada. |
 | `clona o desenho do 21 para 22 a 30 no layout 1` | Layout Clone: copia o desenho do aparelho 21 (todas as células) para 22 a 30, no lugar de cada um, aproximando com 1 quadrado de folga. |
 | `clona o desenho do 21 para 22 a 30 no layout 1 em grade` | Mesma cópia, mas em grade (5 por linha). |
 | `clona o desenho do 21 para 22 a 30 no layout 1 sem aproximar` | No lugar, mantendo o espaço original. |
@@ -119,7 +123,7 @@ Estes pedidos montam estruturas inteiras de uma vez, **sem caixas de pergunta** 
 | `cria os efeitos base` | Efeitos a partir do 901: Circle, Tilt Leque, Pan Wave, Spread (wings 2), Dim Chase, Dim Onda e Dim+Pos. Movimento só se o show tem movings. |
 | `cria os presets de beam` | Pool 5 a partir do 101: Zoom Fechado/Médio/Aberto, Íris Aberta/Fechada, Frost Off/Full, só nos aparelhos que têm o atributo. |
 
-> **Ordem física:** os grupos seguem o desenho do palco. Se o desenho tem mais de uma fileira (cobra, V, zigue-zague) e a numeração dos aparelhos acompanha o desenho, vale a numeração (começando pela esquerda). Assim ODD/EVEN, ESQ/DIR e o delay do color picker saem certos.
+> **Ordem física (colunas):** os grupos de seleção seguem o desenho do layout, da esquerda para a direita. Num desenho em **andares** (a maioria das colunas com 2 ou mais aparelhos, ex.: LED em cima e embaixo), os aparelhos um em cima do outro formam uma coluna: acendem juntos no efeito e no delay, e ODD/EVEN contam por coluna. Numa **fila**, cada aparelho é uma coluna, mesmo que dois estejam encostados. Aparelho de várias células (strobo cluster) conta pelo centro do desenho dele. O `reordena os grupos` continua usando a numeração quando o desenho é cobra, V ou zigue-zague.
 
 ### Usando o color picker na mesa
 
@@ -133,6 +137,21 @@ Estes pedidos montam estruturas inteiras de uma vez, **sem caixas de pergunta** 
 | **DIR** | Direção do delay: esquerda→direita, direita→esquerda, centro→fora, fora→centro |
 
 O quadrado cheio mostra a cor ativa. A 2ª cor fica num executor próprio com prioridade **HIGH**: trocar a cor principal não apaga o split.
+
+### Usando o PRISMA Painel na mesa
+
+| Linha | O que faz |
+|---|---|
+| **Seleção** | Uma linha por tipo: `[TIPO] [ALL] [ODD] [EVEN] [ESQ] [DIR]`, um marcado por tipo (verde). `TODOS` marca o ALL de todos, `LIMPA` desmarca. Tudo abaixo vale só para os marcados. |
+| **COR** / **OFF** | 12 cores (a escolhida aparece como `> NOME <`). OFF solta a cor dos marcados. |
+| **COR FX** / **OPOSTA** | 2ª cor dos efeitos de cor. OPOSTA = cor complementar da COR atual. |
+| **FADE** · **DELAY** · **DIR** | Tempo da troca de cor e delay entre aparelhos, por coluna: `>>` `<<` `><` `<>`. O delay é gravado às cegas (não mexe no programmer). |
+| **FX DIM** | `>>>` `<<>>` `1/3` `2/2` `PULSO` `ONDA` `RANDOM` `OFF` |
+| **FX COR** | `COR >>>` `COR 2/2` `COR ONDA` `OFF` (alterna COR e COR FX; trocar a cor não para o efeito) |
+| **MOVE** | `CIRCLE` `LEQUE` `ONDA` `SPREAD` `OFF` (tipos com pan/tilt) |
+| **RATE** · **BPM** | `1/4` a `4x` e BPM digitado (60 = normal) nos FX dos marcados |
+
+Mudou o desenho ou os grupos? Peça os grupos de seleção de novo, apague o painel antigo (os números aparecem no retorno do `cria o painel`) e crie outro: as fases e os delays ficam gravados nas cues.
 
 ---
 
@@ -423,7 +442,7 @@ A grandMA2 onPC pode estar em outro computador da mesma rede. Tudo funciona igua
 | #7 | `/speed=` no Assign Executor | use `Speed N Executor P.E` |
 | #9 NUMBER TOO LARGE | `List Executor 1.1 Thru 1.999` | faixa menor (até .200) |
 | #14 OBJECT DOES NOT EXIST | atributo que o aparelho não tem, page ou objeto inexistente | confira o patch / crie a page |
-| #43 LOGIN NEEDED | conexão sem login | o programa faz o login sozinho ao iniciar |
+| #43 LOGIN NEEDED | conexão sem login | o programa faz o login sozinho (Administrator / admin, depois sem senha). Show com outra senha: `MA2_USUARIO` e `MA2_SENHA` no config.env |
 | #66 | opção que o comando não aceita (`/rate=`, `/swop=`, `Assign Effect /Attribute=`) | use o comando próprio (`Rate N Executor`) |
 | #72 COMMAND NOT EXECUTED | `Go+ Executor`, `Group X Thru Y`, `Move3D` na Beam Bar, comando enquanto a mesa importa uma camada | veja as seções acima; no Stage 3D espere o "criar aparelhos" terminar |
 
@@ -440,6 +459,7 @@ A grandMA2 onPC pode estar em outro computador da mesma rede. Tudo funciona igua
 | `MA2_LINHA_MAX=250` | tamanho máximo de cada linha mandada para a mesa |
 | `PROMPTS_NUVEM=0` | não baixa prompts da nuvem ao iniciar |
 | `AI_BRIDGE_LOG_LEVEL=verbose` | log da mesa pedaço a pedaço |
+| `MA2_USUARIO=` · `MA2_SENHA=` | usuário e senha da mesa, quando o show não usa o Administrator padrão (senha "admin") |
 | `PRISMA_FX_BASE=901` | primeiro número dos efeitos base |
 | `PRISMA_ICON_BASE=301` · `PRISMA_ICON_FX_BASE=1200` | primeiro número dos ícones no Image pool |
 

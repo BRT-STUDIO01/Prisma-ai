@@ -24,7 +24,7 @@ Você escreve o que quer ("crie 3 cores para show de rock", "faça um chase de 4
 |---|---|
 | **Este README** | O que é, instalação, telas, rede, Stage 3D, privacidade |
 | **[Manual de comandos](docs/MANUAL.md)** | Todos os pedidos que a IA entende, prefixos, exemplos prontos e os comandos da grandMA2 que funcionam (e os que dão erro) |
-| **[Plugins na mesa](docs/PLUGINS.md)** | BRT AI v1 e v2, PRISMA Color Picker, Layout Clone e Channel Sets: o que cada um faz, como rodar à mão e pela IA |
+| **[Plugins na mesa](docs/PLUGINS.md)** | BRT AI v1 e v2, PRISMA Painel, Color Picker, Layout Clone e Channel Sets: o que cada um faz, como rodar à mão e pela IA |
 | **[Perguntas frequentes](docs/FAQ.md)** | Problemas comuns e a solução de cada um |
 | **[Termos e privacidade](docs/PRIVACIDADE.md)** | Licença de uso, o que é coletado, LGPD |
 
@@ -38,7 +38,7 @@ O mesmo manual de comandos também está dentro do programa (tecla **F4**).
 - [O que ele cria](#o-que-ele-cria)
 - [As telas do programa](#as-telas-do-programa)
 - [Plugins que ele instala na mesa](#plugins-que-ele-instala-na-mesa)
-- [PRISMA Control: color picker, grupos e layouts prontos](#prisma-control-color-picker-grupos-e-layouts-prontos)
+- [PRISMA Control: painel, color picker, grupos e layouts prontos](#prisma-control-painel-color-picker-grupos-e-layouts-prontos)
 - [Stage 3D: do Capture para a grandMA2](#stage-3d-do-capture-para-a-grandma2)
 - [Requisitos](#requisitos)
 - [Instalar em 5 minutos](#instalar-em-5-minutos)
@@ -104,7 +104,8 @@ Com pressa? O **BRT AI v1** faz direto, sem perguntar:
 | Cenas, cues e chases | `cena: 4 etapas crescendo nas ribaltas, no executor 1.120` · `chase: 6 cores no led, 128 bpm` |
 | Macros | `macro: botão que salva o show` |
 | Grupos | `cria os grupos de seleção pelos layouts 1 2 3` (ALL, ODD, EVEN, ESQ, DIR, CENTRO, PONTAS, IN-OUT por tipo) |
-| Layouts | `cria o color picker` · `cria o layout dos tipos com ícones` · `clona o desenho do 21 para 22 a 30 no layout 1` |
+| Layouts | `cria o painel` · `cria o color picker` · `cria o layout dos tipos com ícones` · `clona o desenho do 21 para 22 a 30 no layout 1` |
+| Ao vivo | Com o painel no show: `movings vermelho com fade de 2s` · `strobo ímpar magenta` · `tudo uv com delay 2s do centro pra fora` |
 | Patch e Stage 3D | Do projeto do **Capture** (MVR): tipos, aparelhos com ID e endereço, posição 3D e Layout 2D |
 | Tipos de aparelho | Nomear cores, gobos e shutter olhando o aparelho (F6) · criar um FixtureType canal por canal (F7) |
 
@@ -179,7 +180,8 @@ O programa instala sozinho, no pool de Plugins da grandMA2, tudo o que usa (tamb
 |---|---|
 | **BRT AI v1** | Pedido direto: você escreve, a IA executa, sem perguntas |
 | **BRT AI v2** | Pedido com conversa: a IA pergunta o que falta e mostra o plano antes de executar |
-| **PRISMA Color Picker v7** | Cria o color picker no Layout: 12 cores por tipo + ALL, 2ª cor (split), fade, delay e direção |
+| **PRISMA Painel v1.5** | O "super color picker": os grupos viram botões de seleção e cor, 2ª cor, fade, delay, FX de dimmer, FX de cor, movimento e rate vão só nos marcados |
+| **PRISMA Color Picker v8** | Color picker simples no Layout: 12 cores por tipo + ALL, 2ª cor (split), fade, delay e direção |
 | **PRISMA Layout Clone v4** | Copia o desenho de um aparelho de várias células (strobo cluster, barra) para os outros, no lugar de cada um |
 | **PRISMA Channel Sets v3** | Dá nome às posições da roda de cor/gobo olhando o aparelho aceso (usado pela tela F6) |
 
@@ -187,14 +189,24 @@ Detalhes, variáveis e uso manual de cada plugin: **[docs/PLUGINS.md](docs/PLUGI
 
 ---
 
-## PRISMA Control: color picker, grupos e layouts prontos
+## PRISMA Control: painel, color picker, grupos e layouts prontos
 
 Pedidos que montam estruturas inteiras de uma vez, sem caixas de pergunta. A ordem recomendada num show novo:
 
 1. **Layout** dos aparelhos (F2 ou Stage 3D) e, se houver aparelho de várias células, **`clona o desenho do 21 para 22 a 30 no layout 1`**.
 2. **`cria os grupos de seleção pelos layouts 1 2 3`**: 8 grupos por tipo (ALL, ODD, EVEN, ESQ, DIR, CENTRO, PONTAS, IN-OUT) na ordem do palco.
-3. **`cria o color picker`**: uma linha por tipo, sem lista gigante.
+3. **`cria o painel`**: o "super color picker", com seleção de grupos, cor e FX. Ou **`cria o color picker`**, a grade simples de cores.
 4. Opcional: **`cria os efeitos base`**, **`cria os presets de beam`**, **`cria o layout dos tipos com ícones`**.
+
+### PRISMA Painel (o "super color picker")
+
+Uma paleta só, e os grupos viram botões: marque o grupo (ALL, ODD, EVEN, ESQ ou DIR de cada tipo) e aperte a cor ou o efeito, que vai só nele. São dois layouts, **COR** e **FX**, com um botão para virar a página.
+
+- **COR** (12 cores), **COR FX** (2ª cor dos efeitos de cor) e **OPOSTA** (a cor complementar com um toque).
+- **FADE**, **DELAY** e **direção** (`>>` `<<` `><` `<>`), correndo pelas colunas do desenho. O delay é gravado às cegas, sem mexer no programmer.
+- **FX DIM** (`>>>` `<<>>` `1/3` `2/2` `PULSO` `ONDA` `RANDOM`), **FX COR** (alterna as duas cores) e **MOVE** (`CIRCLE` `LEQUE` `ONDA` `SPREAD`), mais **RATE** e **BPM**.
+- Strobo cluster de 16 células conta como **um** aparelho: o strobo inteiro pisca junto.
+- Falando: `movings vermelho com fade de 2s`, `strobo ímpar magenta`, `beam vermelho e segunda cor oposta`. O programa marca os grupos e aperta os botões do painel, sem gastar a IA.
 
 ### Color picker
 
@@ -319,7 +331,7 @@ A IA gera comandos e **pode errar**. Salve o show antes de usar e teste antes de
 
 **PRISMA · AI** is a Windows desktop app by **Studio BRT** that lets you program a **grandMA2 onPC 3.9** console in plain Portuguese. It connects over Telnet (port 30000, same PC or LAN), reads the show (patch, fixture attributes, groups, presets, free IDs), sends the request plus a technical summary to an AI engine (Google Gemini API or Antigravity CLI) and runs the resulting MA2 commands, always using free IDs so nothing is overwritten.
 
-- **In-console plugins:** BRT AI v1 (direct) and v2 (asks and shows a plan before running), PRISMA Color Picker v7 (12-color layout picker per fixture type, 2-color split, fade/delay/direction), PRISMA Layout Clone v4 (copies a multi-cell fixture drawing to other fixtures in place), PRISMA Channel Sets v3 (names color/gobo wheel slots by looking at the fixture).
+- **In-console plugins:** BRT AI v1 (direct) and v2 (asks and shows a plan before running), PRISMA Painel v1.5 ("super color picker": selection-group buttons + color, 2nd color, fade, delay, dimmer/color/movement FX and rate on the selected groups only; voice control such as "movings vermelho com fade de 2s"), PRISMA Color Picker v8 (12-color layout picker per fixture type, 2-color split, fade/delay/direction), PRISMA Layout Clone v4 (copies a multi-cell fixture drawing to other fixtures in place), PRISMA Channel Sets v3 (names color/gobo wheel slots by looking at the fixture).
 - **Creates:** presets (pools 0–9), effects, cues/sequences/chases with executors, macros, selection groups in physical stage order (ALL/ODD/EVEN/LEFT/RIGHT/CENTER/ENDS/IN-OUT), layouts, and patch + Stage 3D + 2D layout from a **Capture (MVR)** project.
 - **Access:** free for a limited time for Studio BRT Patreon members (free tier), signing in with the same Google account. Download: [latest release](https://github.com/BRT-STUDIO01/Prisma-ai/releases/latest). Docs: [command manual](docs/MANUAL.md) · [plugins](docs/PLUGINS.md) · [FAQ](docs/FAQ.md).
 

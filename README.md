@@ -4,6 +4,13 @@
 
 **Agente de inteligência artificial para grandMA2 onPC** · by Studio BRT
 
+[![Baixar](https://img.shields.io/badge/baixar-%C3%BAltima%20vers%C3%A3o-7c3aed?logo=github)](https://github.com/BRT-STUDIO01/Prisma-ai/releases/latest)
+[![Downloads](https://img.shields.io/github/downloads/BRT-STUDIO01/Prisma-ai/total?label=downloads&color=0ea5e9)](https://github.com/BRT-STUDIO01/Prisma-ai/releases)
+![Windows 10/11](https://img.shields.io/badge/Windows-10%20%7C%2011%20%2864%20bits%29-0078D6)
+![grandMA2 onPC 3.9](https://img.shields.io/badge/grandMA2%20onPC-3.9-f59e0b)
+![Português](https://img.shields.io/badge/idioma-portugu%C3%AAs-16a34a)
+[![Patreon](https://img.shields.io/badge/Patreon-Studio%20BRT-F96854?logo=patreon&logoColor=white)](https://www.patreon.com/c/StudioBRT)
+
 ### Programe a grandMA2 falando português.
 
 Você escreve o que quer ("crie 3 cores para show de rock", "faça um chase de 4 passos com fade de 2 segundos", "cria o color picker") e o PRISMA · AI monta e executa os comandos na sua **grandMA2 onPC**. Ele usa os aparelhos, os grupos e os presets do **seu** show e não grava por cima do que você já fez.
@@ -18,13 +25,40 @@ Você escreve o que quer ("crie 3 cores para show de rock", "faça um chase de 4
 
 ---
 
+## Veja em ação
+
+O **PRISMA Painel**, criado pela IA com um pedido (`cria o painel`), rodando na grandMA2 onPC. À esquerda, o layout dos aparelhos; à direita, o painel.
+
+<p align="center">
+  <img src="imagens/49-som-2-2-cor-corre.gif" alt="Página SOM: 2/2 na batida com a cor correndo" width="100%"><br>
+  <sub><b>Página SOM</b> · BATIDA <code>2/2</code> + COR BATIDA: a intensidade e a cor andam com a música, pelo Sound Input da mesa</sub>
+</p>
+
+<table>
+  <tr>
+    <td align="center" width="50%">
+      <img src="imagens/65-fx-rate-4x.gif" alt="Página FX: PULSO e COR 2/2 no RATE 4x" width="100%"><br>
+      <sub><b>Página FX</b> · PULSO + COR 2/2, RATE de 1x para 4x</sub>
+    </td>
+    <td align="center" width="50%">
+      <img src="imagens/73-cor-fade-delay.gif" alt="Página COR: ODD e EVEN com fade e delay" width="100%"><br>
+      <sub><b>Página COR</b> · ODD e EVEN com FADE 5s, DELAY 5s e direção <code>&gt;&gt;</code></sub>
+    </td>
+  </tr>
+</table>
+
+Todas as 24 demonstrações, cada uma junto do botão que ela mostra, estão no **[Guia do Painel](docs/PAINEL.md#em-movimento)**.
+
+---
+
 ## Documentação completa
 
 | Documento | O que tem |
 |---|---|
 | **Este README** | O que é, instalação, telas, rede, Stage 3D, privacidade |
-| **[Manual de comandos](docs/MANUAL.md)** | Todos os pedidos que a IA entende, prefixos, exemplos prontos e os comandos da grandMA2 que funcionam (e os que dão erro) |
-| **[Plugins na mesa](docs/PLUGINS.md)** | BRT AI v1 e v2, PRISMA Painel, Color Picker, Layout Clone e Channel Sets: o que cada um faz, como rodar à mão e pela IA |
+| **[Manual de comandos](docs/MANUAL.md)** | A lista completa de pedidos: os que vão para a IA, os que o programa faz sozinho (sem gastar a IA) e os comandos diretos; prefixos, exemplos prontos e os comandos da grandMA2 que funcionam (e os que dão erro) |
+| **[Guia do Painel](docs/PAINEL.md)** | O PRISMA Painel (o color picker) botão por botão: cada quadrado das páginas COR, FX e SOM, o que faz, para que serve, o que pode rodar junto e as demonstrações em GIF |
+| **[Plugins na mesa](docs/PLUGINS.md)** | BRT AI v1 e v2, PRISMA Painel (o color picker), Layout Clone e Channel Sets: o que cada um faz, como rodar à mão e pela IA |
 | **[Perguntas frequentes](docs/FAQ.md)** | Problemas comuns e a solução de cada um |
 | **[Termos e privacidade](docs/PRIVACIDADE.md)** | Licença de uso, o que é coletado, LGPD |
 
@@ -34,6 +68,7 @@ O mesmo manual de comandos também está dentro do programa (tecla **F4**).
 
 ## Sumário
 
+- [Veja em ação](#veja-em-ação)
 - [Como funciona](#como-funciona)
 - [O que ele cria](#o-que-ele-cria)
 - [As telas do programa](#as-telas-do-programa)
@@ -105,7 +140,8 @@ Com pressa? O **BRT AI v1** faz direto, sem perguntar:
 | Macros | `macro: botão que salva o show` |
 | Grupos | `cria os grupos de seleção pelos layouts 1 2 3` (ALL, ODD, EVEN, ESQ, DIR, CENTRO, PONTAS, IN-OUT por tipo) |
 | Layouts | `cria o painel` · `cria o color picker` · `cria o layout dos tipos com ícones` · `clona o desenho do 21 para 22 a 30 no layout 1` |
-| Ao vivo | Com o painel no show: `movings vermelho com fade de 2s` · `strobo ímpar magenta` · `tudo uv com delay 2s do centro pra fora` |
+| Ao vivo | Com o painel no show: `movings vermelho com fade de 2s` · `strobo ímpar magenta` · `tudo uv com delay 2s do centro pra fora` · `fx no ritmo da musica` |
+| No ritmo da música | Página SOM do painel: desenhos que andam na batida, onda SINE no BPM, nível de som (grave, médio, agudo) e cor trocando na batida, pelo Sound Input da MA2 |
 | Patch e Stage 3D | Do projeto do **Capture** (MVR): tipos, aparelhos com ID e endereço, posição 3D e Layout 2D |
 | Tipos de aparelho | Nomear cores, gobos e shutter olhando o aparelho (F6) · criar um FixtureType canal por canal (F7) |
 
@@ -174,14 +210,13 @@ Arraste os tipos/grupos para a grade, organize e clique em **ENVIAR PARA A MA2**
 
 ## Plugins que ele instala na mesa
 
-O programa instala sozinho, no pool de Plugins da grandMA2, tudo o que usa (também com a mesa em outro PC). Para instalar ou atualizar à mão, peça **`instala os plugins`**.
+O programa instala sozinho, no pool de Plugins da grandMA2, tudo o que usa (também com a mesa em outro PC). Para instalar ou atualizar à mão, peça **`instala os plugins`**: ele também tira do pool as versões velhas (o antigo Color Picker v7/v8, Painel v1.4...).
 
 | Plugin | O que faz |
 |---|---|
 | **BRT AI v1** | Pedido direto: você escreve, a IA executa, sem perguntas |
 | **BRT AI v2** | Pedido com conversa: a IA pergunta o que falta e mostra o plano antes de executar |
-| **PRISMA Painel v1.5** | O "super color picker": os grupos viram botões de seleção e cor, 2ª cor, fade, delay, FX de dimmer, FX de cor, movimento e rate vão só nos marcados |
-| **PRISMA Color Picker v8** | Color picker simples no Layout: 12 cores por tipo + ALL, 2ª cor (split), fade, delay e direção |
+| **PRISMA Painel v2.8** | O color picker do PRISMA ("super color picker"): os grupos viram botões de seleção e cor, 2ª cor, fade, delay, FX de dimmer, FX de cor, movimento, rate e os efeitos que batem com a música vão só nos marcados. Três páginas: COR, FX e SOM |
 | **PRISMA Layout Clone v4** | Copia o desenho de um aparelho de várias células (strobo cluster, barra) para os outros, no lugar de cada um |
 | **PRISMA Channel Sets v3** | Dá nome às posições da roda de cor/gobo olhando o aparelho aceso (usado pela tela F6) |
 
@@ -194,28 +229,42 @@ Detalhes, variáveis e uso manual de cada plugin: **[docs/PLUGINS.md](docs/PLUGI
 Pedidos que montam estruturas inteiras de uma vez, sem caixas de pergunta. A ordem recomendada num show novo:
 
 1. **Layout** dos aparelhos (F2 ou Stage 3D) e, se houver aparelho de várias células, **`clona o desenho do 21 para 22 a 30 no layout 1`**.
-2. **`cria os grupos de seleção pelos layouts 1 2 3`**: 8 grupos por tipo (ALL, ODD, EVEN, ESQ, DIR, CENTRO, PONTAS, IN-OUT) na ordem do palco.
-3. **`cria o painel`**: o "super color picker", com seleção de grupos, cor e FX. Ou **`cria o color picker`**, a grade simples de cores.
+2. **`cria o painel`** (ou **`cria o color picker`**, é o mesmo): o color picker do PRISMA, com seleção de grupos, cor e FX. Pedir de novo (`refaz o painel`) apaga o painel antigo e cria o novo no lugar, sem duplicar. Se faltarem os 8 grupos de seleção por tipo (ALL, ODD, EVEN, ESQ, DIR, CENTRO, PONTAS, IN-OUT), o PRISMA cria antes, lendo os layouts sozinho: cada tipo usa o layout onde está desenhado.
+3. Para refazer só os grupos: **`cria os grupos de seleção`**.
 4. Opcional: **`cria os efeitos base`**, **`cria os presets de beam`**, **`cria o layout dos tipos com ícones`**.
 
 ### PRISMA Painel (o "super color picker")
 
-Uma paleta só, e os grupos viram botões: marque o grupo (ALL, ODD, EVEN, ESQ ou DIR de cada tipo) e aperte a cor ou o efeito, que vai só nele. São dois layouts, **COR** e **FX**, com um botão para virar a página.
+Uma paleta só, e os grupos viram botões: marque o grupo (ALL, ODD, EVEN, ESQ ou DIR de cada tipo) e aperte a cor ou o efeito, que vai só nele. São **três páginas**, com os mesmos botões de seleção em cima e um botão para virar a página.
 
-- **COR** (12 cores), **COR FX** (2ª cor dos efeitos de cor) e **OPOSTA** (a cor complementar com um toque).
-- **FADE**, **DELAY** e **direção** (`>>` `<<` `><` `<>`), correndo pelas colunas do desenho. O delay é gravado às cegas, sem mexer no programmer.
-- **FX DIM** (`>>>` `<<>>` `1/3` `2/2` `PULSO` `ONDA` `RANDOM`), **FX COR** (alterna as duas cores) e **MOVE** (`CIRCLE` `LEQUE` `ONDA` `SPREAD`), mais **RATE** e **BPM**.
+**COR**: 12 cores, **COR FX** (2ª cor dos efeitos de cor) e **OPOSTA** (a cor complementar com um toque), **FADE**, **DELAY** e **direção** (`>>` `<<` `><` `<>`), correndo pelas colunas do desenho. O delay é gravado às cegas, sem mexer no programmer.
+
+![Painel: página COR](imagens/22-painel-cor.png)
+
+**FX** (efeitos sem som): **FX DIM** (`>>>` `<<>>` `1/3` `2/2` `PULSO` `ONDA` `RANDOM`), **FX COR** (alterna as duas cores) e **MOVE** (`CIRCLE` `LEQUE` `ONDA` `SPREAD`), mais **RATE** e **BPM**.
+
+![Painel: página FX](imagens/23-painel-fx.png)
+
+**SOM** (tudo que bate com a música, pelo Sound Input da grandMA2):
+
+- **BATIDA**: `>>>` `<<<` `ONDA` `<<>>` `2/2` `1/3` `RANDOM` `FLASH` `RESPIRA`, o desenho anda **um passo por batida**; **SINE** é uma onda lisa correndo pelas colunas no BPM da música; **SINE SOM** é essa onda correndo sem parar, que acende na batida (com fade) e volta devagar.
+- **SUAVE**: transição entre os passos (seco a 1 s).
+- **RAPIDO** `x1` `x2` `x4`: a mesa costuma pegar metade das batidas; x2 põe o desenho no tempo da música e x4 no dobro, presos ao BPM do Sound Input.
+- **COR BATIDA**: a COR e a COR FX trocando na batida.
+- **NIVEL SOM** `TUDO` `GRAVE` `MEDIO` `AGUDO`: o dimmer segue o volume da faixa (o grave, o médio, o agudo ou tudo).
+- **FADE IN**: os efeitos entram com fade (sem flash) quando você troca.
+- **MUSICA** `AUDIO` / `LIVRE`: os FX da página FX no BPM da música, ou de volta ao RATE.
+
+![Painel: página SOM](imagens/24-painel-som.png)
+
 - Strobo cluster de 16 células conta como **um** aparelho: o strobo inteiro pisca junto.
-- Falando: `movings vermelho com fade de 2s`, `strobo ímpar magenta`, `beam vermelho e segunda cor oposta`. O programa marca os grupos e aperta os botões do painel, sem gastar a IA.
+- Falando: `movings vermelho com fade de 2s`, `strobo ímpar magenta`, `beam vermelho e segunda cor oposta`, `fx no ritmo da musica`. O programa marca os grupos e aperta os botões do painel, sem gastar a IA.
+- Atualizou o PRISMA? Peça `refaz o painel`: o antigo é apagado e o novo entra no lugar.
+- Cada quadrado explicado em detalhe, com os GIFs de cada efeito: **[Guia do Painel](docs/PAINEL.md)**.
 
 ### Color picker
 
-![Color picker criado pelo PRISMA](imagens/20-color-picker.png)
-
-- **Uma linha por tipo** (o grupo "… ALL") e uma linha **ALL** para tudo. 12 cores: White, Red, Amber, Yellow, Green, Cyan, Blue, Lavender, Magenta, Pink, CTO e UV.
-- **2ª cor (SPLIT):** embaixo de cada tipo, escolha a segunda cor e o padrão: **1x1** (alternado), **MET** (metades) ou **PNT** (pontas). OFF volta tudo para a cor principal.
-- **FADE**, **DELAY** e **direção** (esquerda→direita, direita→esquerda, centro→fora, fora→centro) para todas as linhas.
-- Depois de criado, dá para trocar de cor falando: `deixa tudo azul`, `vermelho com fade de 2s`, `âmbar da esquerda pra direita com delay de 1s`. O programa aperta o botão certo do picker, sem gastar a IA e sem criar nada novo.
+Desde a 1.0.8 existe **um color picker só: o PRISMA Painel**. `cria o color picker`, `seletor de cores` ou `paleta de cores no layout` criam o Painel; `color picker dos grupos 101 e 111 na pagina 2` faz o Painel só com esses grupos, na página 2. Os atalhos falados (`deixa tudo azul`, `vermelho com fade de 2s`, `âmbar da esquerda pra direita com delay de 1s`) apertam os botões do Painel. Um Color Picker v8 criado antes num show antigo continua funcionando, mas não se cria mais picker novo.
 
 ### Layout Clone
 
@@ -301,7 +350,7 @@ No **PC do PRISMA · AI**: com o programa parado, clique em **MESA → Endereço
 
 O programa confere se há versão nova ao abrir (e depois a cada 3 horas), baixa sozinho e avisa quando estiver pronta. Também há o menu **Procurar atualização**.
 
-- **1.0 RC rev 041026**: versão **1.0**, fase **RC** (*Release Candidate*: completa e em teste de campo). **rev** é a data do build (04/10/26).
+- Exemplo, **1.0 RC rev 071026**: versão **1.0**, fase **RC** (*Release Candidate*: completa e em teste de campo). **rev** é a data do build (07/10/26).
 - Cada correção sai como uma nova **rev**. Quando a 1.0 for considerada final, o "RC" sai do nome.
 
 Este repositório tem **apenas os instaladores oficiais**. Não baixe o PRISMA · AI de outro lugar.
@@ -311,7 +360,7 @@ Este repositório tem **apenas os instaladores oficiais**. Não baixe o PRISMA �
 | `PRISMA_AI_..._Setup.exe` | Instalador do programa (é o que você baixa) |
 | `latest.yml` e `.blockmap` | Usados pela atualização automática. Não precisa baixar. |
 
-**Conferir se o arquivo é original:** a página de cada versão mostra o SHA-256 do instalador. No `cmd`, na pasta do download: `certutil -hashfile PRISMA_AI_1.0_RC_rev041026_Setup.exe SHA256`. O código tem que ser igual ao da página.
+**Conferir se o arquivo é original:** a página de cada versão mostra o SHA-256 do instalador. No `cmd`, na pasta do download: `certutil -hashfile PRISMA_AI_1.0_RC_rev071026_Setup.exe SHA256`. O código tem que ser igual ao da página.
 
 ## Privacidade (resumo)
 
@@ -331,9 +380,10 @@ A IA gera comandos e **pode errar**. Salve o show antes de usar e teste antes de
 
 **PRISMA · AI** is a Windows desktop app by **Studio BRT** that lets you program a **grandMA2 onPC 3.9** console in plain Portuguese. It connects over Telnet (port 30000, same PC or LAN), reads the show (patch, fixture attributes, groups, presets, free IDs), sends the request plus a technical summary to an AI engine (Google Gemini API or Antigravity CLI) and runs the resulting MA2 commands, always using free IDs so nothing is overwritten.
 
-- **In-console plugins:** BRT AI v1 (direct) and v2 (asks and shows a plan before running), PRISMA Painel v1.5 ("super color picker": selection-group buttons + color, 2nd color, fade, delay, dimmer/color/movement FX and rate on the selected groups only; voice control such as "movings vermelho com fade de 2s"), PRISMA Color Picker v8 (12-color layout picker per fixture type, 2-color split, fade/delay/direction), PRISMA Layout Clone v4 (copies a multi-cell fixture drawing to other fixtures in place), PRISMA Channel Sets v3 (names color/gobo wheel slots by looking at the fixture).
+- **In-console plugins:** BRT AI v1 (direct) and v2 (asks and shows a plan before running), PRISMA Painel v2.8 ("super color picker" with three pages: COLOR, FX and SOUND; selection-group buttons + color, 2nd color, fade, delay, dimmer/color/movement FX and rate on the selected groups only; the SOUND page runs patterns one step per beat, a sine wave synced to the music BPM with x1/x2/x4 speed, a continuously running sine wave that brightens on each beat with a fade, sound-level dimmer per band (all/bass/mid/high), color swapping on the beat and fade-in between effects; voice control such as "movings vermelho com fade de 2s"; "cria o color picker" also creates it, and asking again replaces the old panel instead of duplicating it), PRISMA Layout Clone v4 (copies a multi-cell fixture drawing to other fixtures in place), PRISMA Channel Sets v3 (names color/gobo wheel slots by looking at the fixture).
 - **Creates:** presets (pools 0–9), effects, cues/sequences/chases with executors, macros, selection groups in physical stage order (ALL/ODD/EVEN/LEFT/RIGHT/CENTER/ENDS/IN-OUT), layouts, and patch + Stage 3D + 2D layout from a **Capture (MVR)** project.
-- **Access:** free for a limited time for Studio BRT Patreon members (free tier), signing in with the same Google account. Download: [latest release](https://github.com/BRT-STUDIO01/Prisma-ai/releases/latest). Docs: [command manual](docs/MANUAL.md) · [plugins](docs/PLUGINS.md) · [FAQ](docs/FAQ.md).
+- **See it running:** animated demos of every panel page in the [panel guide](docs/PAINEL.md#em-movimento).
+- **Access:** free for a limited time for Studio BRT Patreon members (free tier), signing in with the same Google account. Download: [latest release](https://github.com/BRT-STUDIO01/Prisma-ai/releases/latest). Docs: [command manual](docs/MANUAL.md) · [panel guide](docs/PAINEL.md) · [plugins](docs/PLUGINS.md) · [FAQ](docs/FAQ.md).
 
 ---
 

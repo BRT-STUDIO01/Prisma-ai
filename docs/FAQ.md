@@ -1,6 +1,6 @@
 # Perguntas frequentes · PRISMA · AI
 
-[← Voltar para o README](../README.md) · [Manual de comandos](MANUAL.md) · [Plugins](PLUGINS.md)
+[← Voltar para o README](../README.md) · [Manual de comandos](MANUAL.md) · [Guia do Painel](PAINEL.md) · [Plugins](PLUGINS.md)
 
 ---
 
@@ -73,7 +73,7 @@ Grave a **REF FRENTE**: aponte os movings para a frente e `Store Preset 2.101 "R
 
 ### A IA vai apagar o que eu já programei?
 
-Não. Preset, sequence, executor, macro, efeito, grupo ou layout ocupado: o novo vai para o próximo número livre. O Layout Clone faz backup do layout antes de gravar. Mesmo assim, **salve o show antes** de usar.
+Não. Preset, sequence, executor, macro, efeito, grupo ou layout ocupado: o novo vai para o próximo número livre. A única exceção é o painel: pedir `cria o painel` de novo apaga o painel antigo (só o que é dele) e põe o novo no lugar. O Layout Clone faz backup do layout antes de gravar. Mesmo assim, **salve o show antes** de usar.
 
 ### Pedi laser/vídeo/facas e ele recusou
 
@@ -87,39 +87,81 @@ O agente de timecode está **trancado** nesta versão (em desenvolvimento).
 
 ## Color picker e grupos
 
-### O color picker veio gigante, uma linha para cada grupo
+### Pedi "cria o color picker" e veio o Painel
 
-Desde a v7 o color picker usa **uma linha por tipo** (os grupos "… ALL"). Atualize os plugins (`instala os plugins`), apague o picker antigo e peça `cria o color picker` de novo. Para escolher os grupos com botões, use o **Painel** (`cria o painel`).
+É isso mesmo. Desde a 1.0.8 existe **um color picker só: o PRISMA Painel v2.8**. `cria o color picker`, `seletor de cores`, `super color picker`, `cria o painel` e `paleta de cores no layout` criam o mesmo Painel (seleção de grupos + cor, 2ª cor, fade, delay, FX e rate). `color picker dos grupos 101 e 111 na pagina 2` faz o Painel só com as linhas desses grupos, na página 2.
 
-### No color picker, o quadrado do CYAN/BLUE/UV aparecia com outra cor
+### Pedi o painel de novo, vai duplicar?
 
-Era a imagem da paleta antiga (corrigido no Color Picker v8). Atualize os plugins e crie o picker de novo.
+Não. Se o show já tem painel, `cria o painel` (ou `refaz o painel`, `recria o painel`, `atualiza o painel`, `cria o color picker`) apaga o antigo antes (macros, layouts "PRISMA Painel", sequences, presets e efeitos "PPN ..." e desliga os executores dele) e cria o novo no lugar. Painel v1.4 antigo, sem o mapa dos botões: layouts, sequences, efeitos e macros "PPN" escondidas saem, mas as macros de cor antigas ficam no pool; apague essas à mão.
+
+### Tenho Color Picker v7/v8 e Painel v1.4 no pool de Plugins
+
+Peça `instala os plugins` (ou `atualiza os plugins`). Ele apaga do pool todo "PRISMA Color Picker" e os Painel, Layout Clone e Channel Sets que não são a versão atual (Painel v2.8, Layout Clone v4, Channel Sets v3), instala o que faltar e responde "Removidos (versão velha): ...". Um color picker v8 já criado num show antigo continua funcionando, e os atalhos falados (`deixa tudo azul`) ainda usam ele se o show não tiver Painel.
 
 ### O CTO saiu verde ou o UV não acendeu
 
-As versões antigas procuravam essas cores só na biblioteca "MA colors", que não tem CTO nem UV. O Color Picker v8 e o Painel v1.5 procuram em todas as bibliotecas de gelatina (Lee Full C.T. Orange e Congo Blue, ou laranja e violeta da MA colors). Crie o picker ou o painel de novo.
+As versões antigas procuravam essas cores só na biblioteca "MA colors", que não tem CTO nem UV. O Painel procura em todas as bibliotecas de gelatina (Lee Full C.T. Orange e Congo Blue, ou laranja e violeta da MA colors). Peça `refaz o painel`.
 
 ### No Painel, o 2/2 não alterna um sim, um não
 
-Dois aparelhos encostados no desenho entravam na mesma coluna e piscavam juntos (ex.: 10 strobos davam 6 × 4). Na 1.0.6, numa fila cada aparelho é uma coluna. Peça os grupos de seleção de novo, apague o painel antigo e peça `cria o painel`.
+Dois aparelhos encostados no desenho entravam na mesma coluna e piscavam juntos (ex.: 10 strobos davam 6 × 4). Na 1.0.6, numa fila cada aparelho é uma coluna. Peça os grupos de seleção de novo e depois `refaz o painel`.
 
 ### Peço "movings azul" e o Painel não muda
 
-O painel precisa ter sido criado na 1.0.6 ou depois: é ela que grava o mapa dos botões que a IA usa. Crie o painel de novo e reinicie o programa se ele estava aberto.
+O painel precisa ter sido criado na 1.0.6 ou depois: é ela que grava o mapa dos botões que a IA usa. Peça `refaz o painel` e reinicie o programa se ele estava aberto.
 
-### O color picker não tem a 2ª cor (SPLIT)
+### Fechei e abri o show: o painel ainda funciona?
 
-A 2ª cor usa os grupos EVEN, DIR e PONTAS de cada tipo. Peça antes `cria os grupos de seleção pelos layouts 1 2 3` (com os números dos seus layouts) e depois o color picker.
+Sim. A MA salva dentro do show as variáveis do painel (SetVar), então os botões continuam marcando e acendendo depois de reabrir.
+
+### O show tinha grupos antigos e o painel (ou a 2ª cor) saiu incompleto
+
+O Painel usa os grupos ALL, ODD, EVEN, ESQ e DIR de cada tipo como botões de seleção. Num show sem grupos o PRISMA cria todos sozinho; se o show já tinha grupos antigos, peça `cria os grupos de seleção` (regrava pelos layouts) e depois `refaz o painel`.
 
 ### ODD/EVEN ou o delay saem fora de ordem
 
-Os grupos seguem o desenho do layout, da esquerda para a direita, por **colunas** (aparelhos um em cima do outro num desenho em andares contam como uma coluna). Recrie os grupos de seleção **pelo layout** onde os aparelhos estão desenhados (`... pelos layouts 1 2 3`). Depois recrie o color picker ou o painel: eles guardam os aparelhos dos grupos na hora em que são criados.
+Os grupos seguem o desenho do layout, da esquerda para a direita, por **colunas** (aparelhos um em cima do outro num desenho em andares contam como uma coluna). Recrie os grupos de seleção **pelo layout** onde os aparelhos estão desenhados (`... pelos layouts 1 2 3`). Depois peça `refaz o painel`: ele guarda os aparelhos dos grupos na hora em que é criado.
 
 ### Os strobos de várias células ficaram longe demais no layout
 
 Peça `clona o desenho do <modelo> para <outros> no layout <N>`. O clone aproxima os aparelhos até sobrar 1 quadrado de folga. Para manter o espaço original, acrescente `sem aproximar`.
 
 ---
+
+## Página SOM do painel (música)
+
+### Atualizei o PRISMA e o painel continua igual
+
+O painel fica gravado no show. Depois de atualizar, clique em **INICIAR** (o plugin novo entra no pool sozinho) e peça `refaz o painel`: o antigo é apagado e o novo, com as três páginas (COR, FX e SOM), entra no lugar.
+
+### A batida não acompanha a música / pega só metade
+
+A BATIDA anda um passo a cada batida que a mesa **ouve** pelo Sound Input, e ela costuma pegar só o 1º e o 3º "tum". Aperte **RAPIDO x2** para andar no tempo da música (x4 = o dobro). Confira também se o som chega na mesa: na janela **Sound Input**, o medidor tem que mexer com a música.
+
+### O NIVEL SOM acende tudo junto, o tempo todo
+
+O **Snd In** (ganho do Sound Input) está alto: todas as faixas ficam no pico. Deixe baixo, uns 5 a 15%, e aumente aos poucos. Se a luz sobe e desce seco demais, suba o **Snd Fade** na mesma janela.
+
+### Troquei de efeito e deu um "flash"
+
+Escolha um tempo no **FADE IN** (0.5s, 1s ou 2s): o efeito novo entra com fade. Na BATIDA o fader do executor sobe nesse tempo.
+
+### Com RAPIDO x2 ou x4 a batida passa para outros desenhos
+
+Isso acontecia antes do Painel v2.4, quando todos os desenhos ficavam numa sequence só. Peça `refaz o painel`: no painel novo cada desenho tem a sua sequence.
+
+### Quero a onda andando e subindo/descendo com o som
+
+Use **BATIDA → SINE SOM**: a onda corre sem parar (como o SINE) e acende na batida: sobe a 100% com fade (0.25 s) e volta devagar a 30% (0.9 s) até a próxima batida. O **SINE** sozinho só corre pela fila (no BPM da música, sem acompanhar o volume). O **NIVEL SOM** (TUDO, GRAVE, MEDIO, AGUDO) acende todos os aparelhos do grupo juntos e desliga a BATIDA: os dois usam o mesmo dimmer, e a grandMA2 não mistura dois efeitos de intensidade de executores diferentes (vale o maior).
+
+### O RESPIRA fica piscando sem parar
+
+Painel v2.6 ou anterior: a volta da sequence não esperava a batida. Peça `refaz o painel` (v2.7 ou mais nova): ele sobe na batida e desce sozinho até 15%, e espera a próxima batida.
+
+### Não sei qual botão está ligado na página SOM
+
+O botão escolhido em cada linha mostra o nome entre `> <` (ex.: `> GRAVE <`) com borda verde. Painel antigo sem essa marca: peça `refaz o painel`.
 
 ## Stage 3D (Capture)
 

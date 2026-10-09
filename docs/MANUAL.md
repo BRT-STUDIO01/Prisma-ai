@@ -2,7 +2,7 @@
 
 **O que funciona de verdade na grandMA2 onPC 3.9**, conferido em show real. Este é o mesmo manual que abre dentro do programa na tecla **F4**.
 
-[← Voltar para o README](../README.md) · [Plugins](PLUGINS.md) · [Perguntas frequentes](FAQ.md)
+[← Voltar para o README](../README.md) · [Guia do Painel](PAINEL.md) · [Plugins](PLUGINS.md) · [Perguntas frequentes](FAQ.md)
 
 ---
 
@@ -10,21 +10,22 @@
 
 1. [Onde pedir](#1-onde-pedir)
 2. [Como pedir: prefixos](#2-como-pedir-prefixos)
-3. [Pedidos prontos do PRISMA Control](#3-pedidos-prontos-do-prisma-control)
-4. [Plugins BRT AI v1 e v2](#4-plugins-brt-ai-v1-e-v2)
-5. [Ribaltas e barras (aparelho com várias cabeças)](#5-ribaltas-e-barras-aparelho-com-várias-cabeças)
-6. [Seleção e grupos](#6-seleção-e-grupos)
-7. [Presets](#7-presets)
-8. [Posição REF FRENTE](#8-posição-ref-frente)
-9. [Efeitos](#9-efeitos)
-10. [Cenas, cues e tempo](#10-cenas-cues-e-tempo)
-11. [Executor, botão e chase](#11-executor-botão-e-chase)
-12. [Macros](#12-macros)
-13. [Vários comandos numa linha](#13-vários-comandos-numa-linha)
-14. [Stage 3D (Capture) e Layout](#14-stage-3d-capture-e-layout)
-15. [Mesa em outro PC](#15-mesa-em-outro-pc)
-16. [Erros da mesa](#16-erros-da-mesa)
-17. [Ajustes (config.env)](#17-ajustes-configenv)
+3. [Lista completa: o que vai para a IA e o que não passa por ela](#3-lista-completa-o-que-vai-para-a-ia-e-o-que-não-passa-por-ela)
+4. [Pedidos prontos do PRISMA Control](#4-pedidos-prontos-do-prisma-control)
+5. [Plugins BRT AI v1 e v2](#5-plugins-brt-ai-v1-e-v2)
+6. [Ribaltas e barras (aparelho com várias cabeças)](#6-ribaltas-e-barras-aparelho-com-várias-cabeças)
+7. [Seleção e grupos](#7-seleção-e-grupos)
+8. [Presets](#8-presets)
+9. [Posição REF FRENTE](#9-posição-ref-frente)
+10. [Efeitos](#10-efeitos)
+11. [Cenas, cues e tempo](#11-cenas-cues-e-tempo)
+12. [Executor, botão e chase](#12-executor-botão-e-chase)
+13. [Macros](#13-macros)
+14. [Vários comandos numa linha](#14-vários-comandos-numa-linha)
+15. [Stage 3D (Capture) e Layout](#15-stage-3d-capture-e-layout)
+16. [Mesa em outro PC](#16-mesa-em-outro-pc)
+17. [Erros da mesa](#17-erros-da-mesa)
+18. [Ajustes (config.env)](#18-ajustes-configenv)
 
 ---
 
@@ -85,7 +86,75 @@ Sem ideia de como pedir? Mande `ajuda: como peço ...`: a ajuda devolve 2 a 4 pe
 
 ---
 
-## 3. Pedidos prontos do PRISMA Control
+## 3. Lista completa: o que vai para a IA e o que não passa por ela
+
+O PRISMA tem dois caminhos. Os **pedidos prontos** (painel, grupos, plugins, clone, atalhos de cor...) o próprio programa reconhece e faz na hora: **não gastam a IA**, não fazem pergunta e respondem em segundos. **Todo o resto** vai para a IA, que monta os comandos com o seu show.
+
+### 3.1 Pedidos que o programa faz sozinho (sem IA)
+
+Funcionam igual no BRT AI v1 e no v2 (e por macro). Detalhes de cada um na seção 4.
+
+| Pedido (exemplos que funcionam) | O que faz |
+|---|---|
+| `instala os plugins` · `atualiza os plugins` · `traz os plugins pra mesa` | Põe no pool de Plugins o que faltar (BRT AI v1/v2, Painel v2.8, Layout Clone v4, Channel Sets v3) e tira as versões velhas |
+| `plugin clone` · `plugin painel` · `plugin color picker` · `plugin channel sets` | Instala o que faltar e diz como usar aquele plugin |
+| `cria os grupos de seleção` · `cria os grupos pelos layouts 1 2 3` · `crie grupos para o color picker usando layout 1 2 3` | 8 grupos por tipo (ALL, ODD, EVEN, ESQ, DIR, CENTRO, PONTAS, IN-OUT) na ordem do palco, a partir do 101 |
+| `cria os grupos pelos layouts 1 2 3 e cria o painel` | Os grupos e, em seguida, o painel |
+| `reordena os grupos pelo layout 1` · `arruma a ordem dos grupos 1 a 8 pelo palco` | Regrava os grupos com os mesmos aparelhos, na ordem física |
+| `cria o painel` · `cria o color picker` · `seletor de cores` · `super color picker` · `paleta de cores no layout` · `painel de cor` | Cria o **PRISMA Painel v2.8** (páginas COR, FX e SOM). Se já existe, apaga o antigo e põe o novo no lugar |
+| `refaz o painel` · `recria o painel` · `atualiza o painel` | O mesmo, deixando claro que é para substituir |
+| `cria o painel na pagina 5` · `color picker dos grupos 101 e 111 na pagina 2` | Painel em outra página de executores / só com esses grupos |
+| `movings vermelho com fade de 2s` · `strobo ímpar magenta` · `par led da esquerda verde` · `grupo 113 âmbar` | Com o painel no show: marca os grupos e aperta COR e FADE |
+| `tudo uv com delay 2s do centro pra fora` · `delay de 1s da esquerda pra direita` · `sem fade` · `sem delay` | Marca e aperta DELAY e DIR (`>>` `<<` `><` `<>`) |
+| `beam vermelho e segunda cor oposta` · `cor fx azul nos beams` · `segunda cor verde` | Aperta COR FX ou OPOSTA |
+| `fx no ritmo da musica` · `fx no bpm` · `fx no bpm livre` | Os FX do painel (dimmer, cor, movimento) no BPM da janela Sound Input / de volta ao RATE |
+| `clona o desenho do 21 para 22 a 30 no layout 1` (`em grade`, `sem aproximar`, `e salva no layout 5`) | Layout Clone: copia o desenho de um aparelho de várias células para os outros |
+| `cria o layout dos tipos com ícones` · `prisma tipos` | Layout com um botão por tipo de aparelho, com ícone |
+| `importa os ícones do prisma` · `importa os ícones de aparelho` · `importa os ícones de função` | Ícones no Image pool (aparelho a partir do 301, função a partir do 1200) |
+| `cria os efeitos base` · `cria os efeitos de movimento e dimmer` | Pacote de efeitos a partir do 901 (Circle, Tilt Leque, Pan Wave, Spread, Dim Chase, Dim Onda, Dim+Pos) |
+| `cria os presets de beam` · `cria os presets de zoom e frost` | Pool 5 a partir do 101: zoom, íris e frost, só em quem tem o atributo |
+| `analise` · `análise` · `analisar` · `resync` | Relê o show inteiro (igual à tecla F1) |
+| `testa o som` | Diagnóstico do Sound Input para o suporte: lê os masters de som e testa por alguns segundos o executor da BATIDA do 1º grupo (depois volta como estava). Use só fora do show |
+| Pedido impossível no seu rig (`facas`, `vídeo`, `laser` sem o aparelho no patch) | Recusado na hora, sem gastar a IA |
+
+> "Cria UM efeito de dimmer chase nos leds" ou "cria um preset de zoom aberto" (um item só) **não** é pacote pronto: vai para a IA.
+
+### 3.2 Pedidos que vão para a IA
+
+Use um prefixo (seção 2) para escolher o especialista; sem prefixo, o programa escolhe pelo assunto. Exemplos que funcionam:
+
+| Área | Exemplos |
+|---|---|
+| Dimmer | `dimmer: crie níveis 0, 25, 50, 75 e 100 para todos` |
+| Posição | `posicao: leque abrindo e fechando nos pointes` · `posicao: todos para a plateia` (a partir da REF FRENTE) |
+| Cor | `cor: paleta de cores quentes para os pointes` · `cor: 30 cores no led` |
+| Gobo, beam, focus | `gobo: presets com os gobos dos pointes` · `beam: zoom aberto e fechado nos pointes` · `focus: foco no centro` |
+| Control e All | `preset control: lamp on, lamp off e reset` · `preset all: abertura: centro, azul, gobo aberto, dimmer 100` |
+| Efeito | `efeito: círculo espelhado nos pointes, lento` · `efeito: dimmer correndo por cabeça nas ribaltas` |
+| Cena e cue | `cena: 4 etapas crescendo nas ribaltas, no executor 1.120` · `cue: blackout com fade de 3s` |
+| Chase | `chase: 6 cores no led, 128 bpm, executor 1.122` |
+| Criação genérica | `cria: blackout geral no executor 1.130` |
+| Macro | `macro: botão que salva o show` |
+| Grupo e layout | `grupo: um grupo para cada tipo de aparelho` · `layout: pointes em linha` |
+| Laser | `laser: 4 cues com clips diferentes` (só com laser no patch) |
+| Painel (efeitos) | `batida 2/2 nos strobos` · `nivel som grave nos leds` · `move circle nos movings` (a IA recebe o mapa dos botões do painel) |
+| Só responder | `patch: quais aparelhos têm cor e quais têm gobo` · `ajuda: como peço uma abertura de show?` · qualquer pergunta terminada em `?` ou começando com "como", "o que", "qual" |
+
+No **BRT AI v2** a IA pergunta o que falta e mostra o plano antes de executar; no **v1** ela decide e executa (seção 5).
+
+### 3.3 Comandos que não são pedido
+
+| Onde | O que digitar | O que faz |
+|---|---|---|
+| Linha `[Channel]>` no rodapé do programa | Qualquer comando da grandMA2 (`Fixture 101 At 100`, `Group 3 At Preset 4.21`) | Vai direto para a mesa, com a resposta ao lado. Setas ↑↓ trazem os anteriores |
+| Linha `[Channel]>` | `help` · `/layout` · `/atributos` · `/criar` · `/mvr` · `/manual` | Ajuda e atalhos que abrem as ferramentas |
+| Teclado do programa | **F1** a **F7** | Reanalisar · Layout Designer · Stage 3D · Manual · conferir REF FRENTE · Atributos · Criar aparelho |
+| Linha de comando da MA2 ou macro | `SetVar $AI_PROMPT = "cor: paleta fria"` e depois `Plugin "BRT AI v1"` (ou `"BRT AI v2"`) | Faz o pedido sem abrir a caixa do plugin |
+| Na mesa | Botões do PRISMA Painel (layouts COR, FX e SOM) | São macros da própria mesa: não passam pelo programa nem pela IA |
+
+---
+
+## 4. Pedidos prontos do PRISMA Control
 
 Estes pedidos montam estruturas inteiras de uma vez, **sem caixas de pergunta** e sem gastar a IA para gerar comando por comando. Funcionam igual no v1 e no v2.
 
@@ -95,25 +164,25 @@ Estes pedidos montam estruturas inteiras de uma vez, **sem caixas de pergunta** 
 |---|---|---|
 | 1 | (F2 Layout Designer ou F3 Stage 3D) | Aparelhos desenhados num Layout |
 | 2 | `clona o desenho do 21 para 22 a 30 no layout 1` | Desenho do aparelho de várias células copiado para os outros |
-| 3 | `cria os grupos de seleção pelos layouts 1 2 3` | 8 grupos por tipo, na ordem do palco |
-| 4 | `cria o painel` | PRISMA Painel: seleção de grupos + cor, 2ª cor, fade, delay, FX de dimmer, cor e movimento |
-| 4b | `cria o color picker` (opcional) | Color picker simples no Layout, uma linha por tipo |
+| 3 | `cria o painel` ou `cria o color picker` | PRISMA Painel (o color picker do PRISMA): seleção de grupos + cor, 2ª cor, fade, delay, FX de dimmer, cor e movimento, e a página SOM com efeitos que batem com a música. Se faltar, cria antes os 8 grupos de seleção por tipo, lendo os layouts sozinho |
+| 3b | `refaz o painel` (se mudar o desenho ou os grupos) | Apaga o painel antigo e cria o novo no lugar, sem duplicar |
 | 5 | `cria os efeitos base` · `cria os presets de beam` | Efeitos e presets de feixe prontos |
 
 ### Tabela completa
 
 | Pedido (exemplos que funcionam) | O que faz |
 |---|---|
-| `instala os plugins` · `atualiza os plugins` | Coloca no pool de Plugins tudo o que o PRISMA usa (BRT AI v1/v2, Color Picker, Painel, Layout Clone, Channel Sets), só o que faltar. |
-| `cria os grupos de seleção` | 8 grupos por tipo de aparelho (ALL, ODD, EVEN, ESQ, DIR, CENTRO, PONTAS, IN-OUT) pela posição 3D. Números a partir de 101, um bloco de 10 por tipo. |
-| `cria os grupos de seleção pelos layouts 1 2 3` | Igual, pela ordem do desenho nos Layouts citados (cada tipo usa o layout onde está). Pedir de novo regrava nos mesmos números. |
+| `instala os plugins` · `atualiza os plugins` | Coloca no pool de Plugins tudo o que o PRISMA usa (BRT AI v1/v2, Painel v2.8, Layout Clone v4, Channel Sets v3), só o que faltar, e apaga do pool as versões velhas: todo "PRISMA Color Picker" (v7, v8...) e Painel/Layout Clone/Channel Sets que não são a versão atual. A resposta lista "Removidos (versão velha): ...". |
+| `cria os grupos de seleção` · `crie grupos para o color picker` | 8 grupos por tipo de aparelho (ALL, ODD, EVEN, ESQ, DIR, CENTRO, PONTAS, IN-OUT) na ordem do desenho. O PRISMA lê todos os layouts do show e cada tipo usa o layout onde está desenhado; sem layout com aparelhos, usa a posição 3D. Números a partir de 101, um bloco de 10 por tipo. Pedir de novo regrava nos mesmos números. O painel faz isso sozinho quando faltam os grupos. |
+| `cria os grupos de seleção pelos layouts 1 2 3` · `cria os grupos pelos layouts 1 2 3 e cria o painel` | Igual, procurando só nos layouts citados. Com "e cria o painel" (ou "e cria o color picker"), monta o painel em seguida. |
 | `reordena os grupos pelo layout 1` · `arruma a ordem dos grupos 1 a 8 pelo palco` | Regrava os grupos existentes com os mesmos aparelhos, só na ordem física. Conserta efeito/delay correndo fora de ordem. |
-| `cria o painel` · `cria o super color picker` | PRISMA Painel v1.5: os grupos de seleção viram botões (marca e fica marcado) e cor, 2ª cor, fade, delay, FX de dimmer, FX de cor, movimento e rate vão só nos marcados. Dois layouts (COR e FX), executores na página 99. Precisa dos grupos de seleção. |
+| `cria o painel` · `cria o color picker` · `cria o super color picker` · `seletor de cores` · `paleta de cores no layout` | Todos criam o mesmo PRISMA Painel v2.8: os grupos de seleção viram botões (marca e fica marcado) e cor, 2ª cor, fade, delay, FX de dimmer, FX de cor, movimento, rate e os efeitos de som vão só nos marcados. Três layouts (COR, FX e SOM), executores na página 99. Precisa dos grupos de seleção (cria sozinho se faltar). |
+| `refaz o painel` · `recria o painel` · `atualiza o painel` | Se o show já tem painel, qualquer pedido de painel (inclusive `cria o painel` e `cria o color picker`) apaga o antigo antes (macros, layouts "PRISMA Painel", sequences, presets e efeitos "PPN ...", e desliga os executores dele) e cria o novo no lugar. Painel v1.4 antigo: as macros de cor antigas ficam no pool (apague à mão). |
+| `fx no ritmo da musica` · `fx no bpm` · `fx no bpm livre` | Os FX do painel (dimmer, cor, movimento) andam no BPM da janela Sound Input da mesa (Special Master 3.16 "BPM"; o Snd In precisa deixar a mesa ouvir a música). `fx no bpm livre` volta para o RATE de cada um. É o mesmo que os botões MUSICA `AUDIO` / `LIVRE` da página SOM. |
 | `cria o painel na pagina 5` | O mesmo, com os executores na página 5. |
 | `movings vermelho com fade de 2s` · `strobo ímpar magenta` · `tudo uv com delay 2s do centro pra fora` · `beam vermelho e segunda cor oposta` | Com o painel no show: marca os grupos e aperta os botões do painel. Não cria nada. |
-| `cria o color picker` | Color picker simples (plugin PRISMA Color Picker v8): uma linha por tipo (grupos "… ALL") + ALL, 2ª cor, fade, delay e direção. |
-| `color picker dos grupos 101 e 111 na pagina 2` | Color picker só com esses grupos, executores na página 2. |
-| `deixa tudo azul` · `vermelho com fade de 2s` · `âmbar da esquerda pra direita com delay de 1s` | Com o color picker já criado (e sem painel): aperta os botões do picker (cor, fade, delay, direção). Não cria nada. |
+| `color picker dos grupos 101 e 111 na pagina 2` | Painel só com as linhas desses grupos, executores na página 2. |
+| `deixa tudo azul` · `vermelho com fade de 2s` · `âmbar da esquerda pra direita com delay de 1s` | Com o painel no show: aperta os botões do painel (cor, fade, delay, direção). Show antigo que ainda tem um Color Picker v8 criado antes (e sem painel): aperta os botões dele. Não cria nada. |
 | `clona o desenho do 21 para 22 a 30 no layout 1` | Layout Clone: copia o desenho do aparelho 21 (todas as células) para 22 a 30, no lugar de cada um, aproximando com 1 quadrado de folga. |
 | `clona o desenho do 21 para 22 a 30 no layout 1 em grade` | Mesma cópia, mas em grade (5 por linha). |
 | `clona o desenho do 21 para 22 a 30 no layout 1 sem aproximar` | No lugar, mantendo o espaço original. |
@@ -127,35 +196,56 @@ Estes pedidos montam estruturas inteiras de uma vez, **sem caixas de pergunta** 
 
 ### Usando o color picker na mesa
 
-| Linha | O que faz |
-|---|---|
-| **<tipo>** (ex.: `BS960 Strobosc`) | 12 cores para aquele tipo: White, Red, Amber, Yellow, Green, Cyan, Blue, Lavender, Magenta, Pink, CTO, UV |
-| **SPLIT** (embaixo de cada tipo) | 2ª cor: escolha a cor e o padrão **1x1** (alternado, grupo EVEN), **MET** (metades, grupo DIR) ou **PNT** (pontas, grupo PONTAS). **OFF** solta a 2ª cor. |
-| **ALL** | A mesma cor para todos os tipos |
-| **FADE** | OFF, 0.5, 1, 2, 3, 5 s para todas as linhas |
-| **DELAY** | OFF, 0.5, 1, 2, 3, 5 s |
-| **DIR** | Direção do delay: esquerda→direita, direita→esquerda, centro→fora, fora→centro |
-
-O quadrado cheio mostra a cor ativa. A 2ª cor fica num executor próprio com prioridade **HIGH**: trocar a cor principal não apaga o split.
+O color picker do PRISMA é o **PRISMA Painel** (tabela abaixo). O antigo Color Picker v8 foi aposentado: um picker v8 já criado num show continua funcionando, mas `cria o color picker` agora monta o Painel. Para tirar as versões velhas do pool de Plugins, peça `instala os plugins`.
 
 ### Usando o PRISMA Painel na mesa
 
+O painel tem **três páginas** (layouts "PRISMA Painel COR", "FX" e "SOM"). Em todas, em cima, a **seleção**: uma linha por tipo `[TIPO] [ALL] [ODD] [EVEN] [ESQ] [DIR]`, um marcado por tipo (verde); `TODOS` marca o ALL de todos, `LIMPA` desmarca; os botões **COR**, **FX** e **SOM** viram a página. Tudo abaixo vale só para os marcados. O botão escolhido em cada linha mostra `> NOME <`.
+
+Cada quadrado explicado em detalhe: **[Guia do Painel](PAINEL.md)**.
+
+**Página COR**
+
+![Painel: página COR](../imagens/22-painel-cor.png)
+
 | Linha | O que faz |
 |---|---|
-| **Seleção** | Uma linha por tipo: `[TIPO] [ALL] [ODD] [EVEN] [ESQ] [DIR]`, um marcado por tipo (verde). `TODOS` marca o ALL de todos, `LIMPA` desmarca. Tudo abaixo vale só para os marcados. |
-| **COR** / **OFF** | 12 cores (a escolhida aparece como `> NOME <`). OFF solta a cor dos marcados. |
+| **COR** / **OFF** | 12 cores. OFF solta a cor dos marcados. |
 | **COR FX** / **OPOSTA** | 2ª cor dos efeitos de cor. OPOSTA = cor complementar da COR atual. |
-| **FADE** · **DELAY** · **DIR** | Tempo da troca de cor e delay entre aparelhos, por coluna: `>>` `<<` `><` `<>`. O delay é gravado às cegas (não mexe no programmer). |
+| **FADE** · **DELAY** · **DIR** | Tempo da troca de cor (OFF a 5 s) e delay entre aparelhos, por coluna: `>>` `<<` `><` `<>`. O delay é gravado às cegas (não mexe no programmer). |
+
+**Página FX** (efeitos sem som)
+
+![Painel: página FX](../imagens/23-painel-fx.png)
+
+| Linha | O que faz |
+|---|---|
 | **FX DIM** | `>>>` `<<>>` `1/3` `2/2` `PULSO` `ONDA` `RANDOM` `OFF` |
 | **FX COR** | `COR >>>` `COR 2/2` `COR ONDA` `OFF` (alterna COR e COR FX; trocar a cor não para o efeito) |
 | **MOVE** | `CIRCLE` `LEQUE` `ONDA` `SPREAD` `OFF` (tipos com pan/tilt) |
 | **RATE** · **BPM** | `1/4` a `4x` e BPM digitado (60 = normal) nos FX dos marcados |
 
-Mudou o desenho ou os grupos? Peça os grupos de seleção de novo, apague o painel antigo (os números aparecem no retorno do `cria o painel`) e crie outro: as fases e os delays ficam gravados nas cues.
+**Página SOM** (tudo que bate com a música, pelo Sound Input da MA2)
+
+![Painel: página SOM](../imagens/24-painel-som.png)
+
+| Linha | O que faz |
+|---|---|
+| **BATIDA** | `>>>` `<<<` `ONDA` `<<>>` `2/2` `1/3` `RANDOM` `FLASH` `SINE` `SINE SOM` `RESPIRA` `OFF`: o desenho anda um passo por batida da música, pelas colunas. SINE = onda lisa correndo no BPM da música; SINE SOM = a mesma onda correndo sem parar, que acende na batida (com fade) e volta devagar; RESPIRA = sobe na batida e desce sozinho |
+| **SUAVE** | `SECO` `0.15s` `0.3s` `0.5s` `1s`: transição entre os passos |
+| **RAPIDO** | `x1` `x2` `x4`: x1 = um passo por batida que a mesa pega (ela costuma pegar metade); x2 = no tempo da música; x4 = o dobro (chaser no BPM do Sound Input). No SINE: x1 = metade do BPM, x2 = BPM, x4 = dobro |
+| **COR BATIDA** | `TROCA` `COR >>>` `COR <<<` `COR 2/2` `OFF`: COR e COR FX trocando na batida |
+| **NIVEL SOM** | `TUDO` `GRAVE` `MEDIO` `AGUDO` `OFF`: o dimmer segue o volume da faixa (todos juntos). Desliga a BATIDA (mesmo dimmer) |
+| **FADE IN** | `SECO` `0.5s` `1s` `2s`: entrada sem flash ao trocar de efeito |
+| **MUSICA** | `AUDIO` / `LIVRE`: os FX da página FX no BPM do Sound Input / de volta ao RATE |
+
+Na janela **Sound Input** da mesa, deixe o **Snd In** baixo (uns 5 a 15%): alto demais, todas as faixas ficam no pico. O **Snd Fade** suaviza a resposta ao som.
+
+Mudou o desenho ou os grupos? Peça os grupos de seleção de novo e depois `refaz o painel`: o antigo é apagado e o novo entra no lugar (as fases e os delays ficam gravados nas cues, por isso precisa refazer). Atualizou o PRISMA? Peça `refaz o painel` para receber o painel novo. As variáveis do painel (SetVar) ficam salvas no show: depois de reabrir o show, ele continua funcionando.
 
 ---
 
-## 4. Plugins BRT AI v1 e v2
+## 5. Plugins BRT AI v1 e v2
 
 | | BRT AI v1 (direto) | BRT AI v2 (conversa) |
 |---|---|---|
@@ -174,7 +264,7 @@ Mais detalhes em [PLUGINS.md](PLUGINS.md).
 
 ---
 
-## 5. Ribaltas e barras (aparelho com várias cabeças)
+## 6. Ribaltas e barras (aparelho com várias cabeças)
 
 Ao ler o show, o sistema conta as cabeças de cada tipo (ex.: DTW Bar = 12, de 1.1 a 1.12; strobo BS960 = 16, de 21.1 a 21.16).
 
@@ -191,7 +281,7 @@ Escreva **por cabeça** no pedido (chase, efeito, cor alternada) para a IA traba
 
 ---
 
-## 6. Seleção e grupos
+## 7. Seleção e grupos
 
 ```
 ClearAll
@@ -209,7 +299,7 @@ A ordem da seleção gravada no grupo é a ordem em que efeito, fase e delay cor
 
 ---
 
-## 7. Presets
+## 8. Presets
 
 | Pool | Tipo | Pool | Tipo |
 |---|---|---|---|
@@ -231,7 +321,7 @@ ClearAll ; Fixture 201 Thru 218 ; Attribute "Dim" At 60 ; Store Preset 1.6 "RIBA
 
 ---
 
-## 8. Posição REF FRENTE
+## 9. Posição REF FRENTE
 
 A IA não sabe como cada moving está montado: `Tilt At -30` pode ser frente num e fundo no outro. Por isso existe a posição de referência.
 
@@ -247,7 +337,7 @@ Com a REF gravada, a IA monta as posições a partir dela com ajuste relativo (`
 
 ---
 
-## 9. Efeitos
+## 10. Efeitos
 
 ### Receita testada
 
@@ -289,7 +379,7 @@ ClearAll
 
 ---
 
-## 10. Cenas, cues e tempo
+## 11. Cenas, cues e tempo
 
 ```
 ClearAll ; Fixture 101 Thru 112 ; Preset 4.3 ; Preset 2.1 ; At 80
@@ -323,7 +413,7 @@ Assign Sequence 120 Cue 3 /trig=time /trigtime=3
 
 ---
 
-## 11. Executor, botão e chase
+## 12. Executor, botão e chase
 
 ```
 Store Page 2 /nc
@@ -350,7 +440,7 @@ Rate 2 Executor 1.122
 
 ---
 
-## 12. Macros
+## 13. Macros
 
 ```
 CD Macro
@@ -365,7 +455,7 @@ CD /
 
 ---
 
-## 13. Vários comandos numa linha
+## 14. Vários comandos numa linha
 
 ```
 ClearAll ; Fixture 7 ; Move3D At -6.548 -0.97 7.11 ; Rotate3D At 0 0 -180 ; ClearAll
@@ -380,7 +470,7 @@ ClearAll ; Fixture 7 ; Move3D At -6.548 -0.97 7.11 ; Rotate3D At 0 0 -180 ; Clea
 
 ---
 
-## 14. Stage 3D (Capture) e Layout
+## 15. Stage 3D (Capture) e Layout
 
 **3 passos** na tela F3 (veja as imagens no [README](../README.md#stage-3d-do-capture-para-a-grandma2)):
 
@@ -416,7 +506,7 @@ Label Layout 20 "CAPTURE"
 
 ---
 
-## 15. Mesa em outro PC
+## 16. Mesa em outro PC
 
 A grandMA2 onPC pode estar em outro computador da mesma rede. Tudo funciona igual: pedidos, leitura do show, plugins, Layout e Stage 3D.
 
@@ -433,7 +523,7 @@ A grandMA2 onPC pode estar em outro computador da mesma rede. Tudo funciona igua
 
 ---
 
-## 16. Erros da mesa
+## 17. Erros da mesa
 
 | Erro | Quando aparece | O que fazer |
 |---|---|---|
@@ -448,7 +538,7 @@ A grandMA2 onPC pode estar em outro computador da mesma rede. Tudo funciona igua
 
 ---
 
-## 17. Ajustes (config.env)
+## 18. Ajustes (config.env)
 
 | Variável | O que faz |
 |---|---|
